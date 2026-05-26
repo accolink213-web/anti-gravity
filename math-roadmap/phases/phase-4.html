@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#roadmap" class="nav-link">กลับหน้าหลัก (Roadmap)</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <section class="phases-detail" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <article class="phase-block visible" id="phase-4">
+                <div class="phase-header-bar critical">
+                    <div class="phase-number">Phase 4</div>
+                    <div class="phase-info">
+                        <h2>Probability & Statistics — หัวใจของตลาด</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–4 เดือน</span>
+                            <span class="meta-item">🎯 คิดแบบ Probabilistic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>เป้าหมายคือเปลี่ยนจากการคิดแบบ <strong>"ขึ้นแน่/ลงแน่"</strong> เป็น <strong>"โอกาสสูงกว่า"</strong> — โลกจริงไม่มีอะไรแน่นอน ความน่าจะเป็นคือภาษาของความไม่แน่นอน</p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🎲 Random Variable & Distributions</h3>
+                            <span class="topic-badge">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Random Variable</strong> $X$ = ตัวแปรที่ค่าของมัน "สุ่ม" — ไม่รู้ค่าจริงจนกว่าจะเกิดเหตุการณ์<br>
+                                <strong>Distribution</strong> = "แผนที่" ของความเป็นไปได้ทั้งหมด</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>Distributions สำคัญ</h4>
+                                <div class="distribution-cards">
+                                    <div class="dist-card">
+                                        <div class="dist-name">Normal (Gaussian)</div>
+                                        <div class="dist-eq">$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$</div>
+                                        <div class="dist-intuition">ระฆังคว่ำ — ค่าส่วนใหญ่อยู่ใกล้ค่าเฉลี่ย</div>
+                                        <div class="dist-usage">Return หุ้น, measurement error, height of people</div>
+                                    </div>
+                                    <div class="dist-card">
+                                        <div class="dist-name">Poisson</div>
+                                        <div class="dist-eq">$P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}$</div>
+                                        <div class="dist-intuition">นับจำนวนเหตุการณ์ในช่วงเวลา</div>
+                                        <div class="dist-usage">จำนวน trade ต่อนาที, จำนวน photon ที่ detector</div>
+                                    </div>
+                                    <div class="dist-card">
+                                        <div class="dist-name">Exponential</div>
+                                        <div class="dist-eq">$f(x) = \lambda e^{-\lambda x}$</div>
+                                        <div class="dist-intuition">เวลาระหว่างเหตุการณ์</div>
+                                        <div class="dist-usage">เวลาระหว่าง orders, radioactive decay</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📊 Expectation & Variance</h3>
+                            <span class="topic-badge badge-critical">สำคัญมาก</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Expectation</strong> $\mathbb{E}[X]$ = "ค่าเฉลี่ยในระยะยาว" — ถ้าทำซ้ำ ∞ ครั้ง จะได้ค่านี้<br>
+                                <strong>Variance</strong> $\text{Var}(X)$ = "กระจายแค่ไหน?" — วัดความ "ไม่แน่นอน"</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\mathbb{E}[X] = \sum x_i \cdot P(x_i) = \int x \cdot f(x)\,dx$</span>
+                                        <span class="eq-explain">ค่าเฉลี่ยถ่วงน้ำหนักด้วยความน่าจะเป็น</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\text{Var}(X) = \mathbb{E}[(X - \mu)^2] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2$</span>
+                                        <span class="eq-explain">ค่าเบี่ยงเบนจากค่าเฉลี่ยยกกำลังสอง</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Finance:</strong> Expected return $\mathbb{E}[R]$ vs Risk $\sigma = \sqrt{\text{Var}(R)}$ — Sharpe Ratio ใช้ทั้งคู่</li>
+                                    <li><strong>Quantum:</strong> $\langle \hat{A} \rangle = \langle \psi | \hat{A} | \psi \rangle$ — ค่าคาดหวังของการวัด</li>
+                                    <li><strong>ML:</strong> Loss function = $\mathbb{E}[\mathcal{L}(\theta)]$ — minimize expected error</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🧠 Conditional Probability & Bayes</h3>
+                            <span class="topic-badge badge-critical">เปลี่ยนวิธีคิด</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Conditional:</strong> $P(A|B)$ = "โอกาสเกิด A ถ้ารู้แล้วว่า B เกิด" — ข้อมูลใหม่เปลี่ยนความน่าจะเป็น!</p>
+                                <div class="key-identity">
+                                    <span>$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$</span>
+                                    <span class="identity-label">Bayes' Theorem — "อัปเดตความเชื่อเมื่อมีข้อมูลใหม่"</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่างจริง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$P(\text{ฝนตก}|\text{เมฆครึ้ม}) \gg P(\text{ฝนตก})$</span>
+                                        <span class="eq-explain">เห็นเมฆครึ้ม → โอกาสฝนเพิ่มขึ้น — ข้อมูลเปลี่ยนความเชื่อ</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$P(\text{หุ้นขึ้น}|\text{Fed ลดดอกเบี้ย})$</span>
+                                        <span class="eq-explain">การคิดแบบ trader — ทุก event update ความน่าจะเป็น</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 4</h4>
+                            <p>เริ่มคิดแบบ <strong>probabilistic</strong> — แทนที่จะพูดว่า "ขึ้นแน่/ลงแน่" เป็น <strong>"โอกาสสูงกว่า, expected value เท่าไหร่, risk เท่าไหร่"</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div style="display:flex; justify-content:space-between; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);"><a href="phase-3.html" class="btn btn-secondary">← ก่อนหน้า (Phase 3)</a><a href="phase-5.html" class="btn btn-primary">ถัดไป (Phase 5) →</a></div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

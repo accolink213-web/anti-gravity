@@ -9,14 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navigation
     initNavigation();
 
-    // Phase pills navigation
-    initPhasePills();
-
     // Scroll reveal for phase blocks
     initScrollReveal();
-
-    // Intersection observer for active phase pill
-    initPhaseObserver();
 });
 
 // ==========================================
@@ -80,29 +74,6 @@ function initNavigation() {
 }
 
 // ==========================================
-// Phase Pills Navigation
-// ==========================================
-
-function initPhasePills() {
-    const pills = document.querySelectorAll('.phase-pill');
-
-    pills.forEach(pill => {
-        pill.addEventListener('click', () => {
-            const targetId = pill.dataset.target;
-            const target = document.getElementById(targetId);
-
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                // Update active state
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-            }
-        });
-    });
-}
-
-// ==========================================
 // Scroll Reveal
 // ==========================================
 
@@ -127,42 +98,26 @@ function initScrollReveal() {
 }
 
 // ==========================================
-// Phase Observer (Active pill tracking)
-// ==========================================
-
-function initPhaseObserver() {
-    const phases = document.querySelectorAll('.phase-block');
-    const pills = document.querySelectorAll('.phase-pill');
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    pills.forEach(pill => {
-                        pill.classList.toggle('active', pill.dataset.target === id);
-                    });
-                }
-            });
-        },
-        {
-            threshold: 0.15,
-            rootMargin: '-100px 0px -50% 0px'
-        }
-    );
-
-    phases.forEach(phase => {
-        observer.observe(phase);
+// Initialize toggle buttons for practice problem hints and solutions
+function initToggleButtons() {
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+      const isHidden = targetEl.hasAttribute('hidden');
+      if (isHidden) {
+        targetEl.removeAttribute('hidden');
+        btn.textContent = 'Hide ' + (targetId.startsWith('hint') ? 'Hint' : 'Solution');
+      } else {
+        targetEl.setAttribute('hidden', '');
+        btn.textContent = 'Show ' + (targetId.startsWith('hint') ? 'Hint' : 'Solution');
+      }
     });
+  });
 }
 
-// ==========================================
-// Scroll to phase from timeline
-// ==========================================
-
-function scrollToPhase(phaseIndex) {
-    const target = document.getElementById(`phase-${phaseIndex}`);
-    if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
+// Call initToggleButtons after DOM content loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initToggleButtons();
+});

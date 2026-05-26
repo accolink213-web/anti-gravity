@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#roadmap" class="nav-link">กลับหน้าหลัก (Roadmap)</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <section class="phases-detail" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <article class="phase-block visible" id="phase-5">
+                <div class="phase-header-bar advanced">
+                    <div class="phase-number">Phase 5</div>
+                    <div class="phase-info">
+                        <h2>Differential Equations — จุดเริ่มอ่าน Physics/Quant จริง</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 1–2 เดือน</span>
+                            <span class="meta-item">🎯 ระบบที่ evolve ตามกฎ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>Differential Equation (DE) คือ <strong>สมการที่อธิบายว่าระบบเปลี่ยนแปลงอย่างไร</strong> — ไม่ได้บอกคำตอบโดยตรง แต่บอก "กฎ" ของการเปลี่ยนแปลง แล้วเราหาคำตอบจากกฎนั้น</p>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🔄 ODE — สมการของการเปลี่ยนแปลง</h3>
+                            <span class="topic-badge badge-critical">Gateway</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>ตัวอย่างพื้นฐานที่สุด</h4>
+                                <div class="key-identity">
+                                    <span>$\frac{dx}{dt} = ax$</span>
+                                    <span class="identity-label">"ระบบโตตามค่าปัจจุบัน" → คำตอบคือ $x(t) = x_0 e^{at}$</span>
+                                </div>
+                                <p style="margin-top:1rem;">ถ้า $a > 0$: โตแบบ exponential (ประชากร, ดอกเบี้ย)<br>
+                                ถ้า $a < 0$: สลาย exponential (กัมมันตรังสี, ยาในเลือด)</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>DE ที่สำคัญในแต่ละศาสตร์</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{d^2x}{dt^2} = -\omega^2 x$</span>
+                                        <span class="eq-explain"><strong>Harmonic Oscillator:</strong> ระบบแกว่งไปมา → $x(t) = A\cos(\omega t + \phi)$</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{\partial u}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2}$</span>
+                                        <span class="eq-explain"><strong>Wave Equation:</strong> คลื่นแพร่กระจาย — เสียง, แสง, quantum wave</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$i\hbar\frac{\partial}{\partial t}\Psi = \hat{H}\Psi$</span>
+                                        <span class="eq-explain"><strong>Schrödinger Equation:</strong> กฎการ evolve ของ quantum state!</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{dS}{S} = \mu\,dt + \sigma\,dW_t$</span>
+                                        <span class="eq-explain"><strong>GBM:</strong> ราคาหุ้นเปลี่ยนตามแนวโน้ม + noise</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 5</h4>
+                            <p>เห็น DE แล้วอ่านได้ว่า <strong>"ระบบนี้ evolve อย่างไร"</strong> — Wave equation, Schrödinger, Black-Scholes จะดู familiar ขึ้นมาก</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div style="display:flex; justify-content:space-between; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);"><a href="phase-4.html" class="btn btn-secondary">← ก่อนหน้า (Phase 4)</a><a href="phase-6.html" class="btn btn-primary">ถัดไป (Phase 6) →</a></div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

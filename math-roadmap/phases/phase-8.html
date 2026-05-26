@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#roadmap" class="nav-link">กลับหน้าหลัก (Roadmap)</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <section class="phases-detail" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <article class="phase-block visible" id="phase-8">
+                <div class="phase-header-bar expert">
+                    <div class="phase-number">Phase 8</div>
+                    <div class="phase-info">
+                        <h2>Functional / Operator Thinking — Quantum จริงจัง</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–4 เดือน</span>
+                            <span class="meta-item">🎯 Quantum Mechanics & Beyond</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ถึงจุดนี้ เราไม่ได้แค่ "คำนวณ" แต่ <strong>คิดเป็นระบบ</strong> — Operator ทำหน้าที่กับ function (ไม่ใช่ตัวเลข), Hilbert space คือห้องที่ quantum state อาศัยอยู่, Fourier คือการ "แยกสเปกตรัม" ของสัญญาณ</p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🏗️ Hilbert Space — ห้องของ Quantum</h3>
+                            <span class="topic-badge">Foundation</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Hilbert space = <strong>"vector space ที่สมบูรณ์"</strong> พร้อม inner product — quantum state ทุกตัวอยู่ในนี้</p>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\langle \psi | \phi \rangle = \int \psi^*(x)\phi(x)\,dx$</span>
+                                        <span class="eq-explain">Inner product — วัด "ความทับซ้อน" ระหว่าง 2 quantum states</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>⚙️ Operators — เครื่องจักรที่ทำกับ Functions</h3>
+                            <span class="topic-badge badge-critical">Core Quantum</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>ในคณิตปกติ: function รับ <strong>ตัวเลข</strong> → คายตัวเลข<br>
+                                ใน quantum: operator รับ <strong>function</strong> → คาย function<br>
+                                เหมือน matrix แต่ทำงานในมิติอนันต์</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>Operators สำคัญ</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\hat{p} = -i\hbar\frac{\partial}{\partial x}$</span>
+                                        <span class="eq-explain"><strong>Momentum operator</strong> — "วัดโมเมนตัม" = derivative ของ wave function</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)$</span>
+                                        <span class="eq-explain"><strong>Hamiltonian</strong> — "พลังงานรวม" = kinetic + potential</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🌟 Eigenstate Equation — สมการที่สำคัญที่สุดของ Quantum</h3>
+                            <span class="topic-badge badge-critical">จุดหมายปลายทาง</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <div class="key-identity" style="font-size:1.2em;">
+                                    <span>$\hat{H}\psi = E\psi$</span>
+                                    <span class="identity-label">Time-independent Schrödinger Equation<br>"operator พลังงาน ทำกับ state → ได้ state เดิมคูณค่าพลังงาน"</span>
+                                </div>
+                                <p style="margin-top:1rem;">นี่คือ <strong>eigenvalue equation เดียวกัน</strong>กับ $A\vec{x}=\lambda\vec{x}$ ใน Linear Algebra! แค่ตอนนี้ $A$ เป็น operator, $\vec{x}$ เป็น function, $\lambda$ เป็นค่าที่วัดได้</p>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ตัวอย่างจริง</h4>
+                                <ul>
+                                    <li><strong>Hydrogen atom:</strong> แก้ $\hat{H}\psi = E\psi$ → ได้ energy levels $E_n = -\frac{13.6}{n^2}$ eV</li>
+                                    <li><strong>Harmonic oscillator:</strong> แก้ $\hat{H}\psi = E\psi$ → ได้ $E_n = \hbar\omega(n + \frac{1}{2})$ (พลังงาน quantized!)</li>
+                                    <li><strong>Matrix mechanics:</strong> เขียน operator เป็น matrix → หา eigenvalues ด้วย Linear Algebra ปกติ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🎵 Fourier Intuition — "แยกสเปกตรัม"</h3>
+                            <span class="topic-badge">Essential</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Fourier Transform = <strong>"แยกสัญญาณออกเป็นคลื่นพื้นฐาน"</strong> — เหมือนเอาเสียงดนตรีมาแยกเป็นโน้ตแต่ละตัว</p>
+                                <div class="key-identity">
+                                    <span>$\hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-i\omega t}\,dt$</span>
+                                    <span class="identity-label">"ถอดรหัส" สัญญาณ: เวลา → ความถี่</span>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Quantum:</strong> Position ↔ Momentum เป็น Fourier pair ($\psi(x) \leftrightarrow \tilde{\psi}(p)$)</li>
+                                    <li><strong>Signal Processing:</strong> แยกสัญญาณเสียง, กรอง noise</li>
+                                    <li><strong>Finance:</strong> Characteristic function, spectral analysis ของ returns</li>
+                                    <li><strong>ML:</strong> Fourier features, convolutional layers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🏆</div>
+                        <div class="goal-content">
+                            <h4>🎉 จุดหมายปลายทาง!</h4>
+                            <p>เห็น $\hat{H}\psi = E\psi$ แล้วอ่านออกว่า <strong>"Eigenvalue problem ของ energy operator"</strong><br>
+                            เห็น $dS_t = \mu\,dt + \sigma\,dW_t$ แล้วอ่านออกว่า <strong>"ราคาเปลี่ยนตาม drift + noise"</strong><br><br>
+                            สมการไม่ใช่ภาษาเอเลี่ยนอีกต่อไป — มันคือ <strong>"ภาษาที่เล่าเรื่องของจักรวาล"</strong> 🌌</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div style="display:flex; justify-content:space-between; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);"><a href="phase-7.html" class="btn btn-secondary">← ก่อนหน้า (Phase 7)</a><div></div></div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

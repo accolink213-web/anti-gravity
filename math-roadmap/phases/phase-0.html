@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#roadmap" class="nav-link">กลับหน้าหลัก (Roadmap)</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <section class="phases-detail" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <article class="phase-block visible" id="phase-0">
+                <div class="phase-header-bar foundation">
+                    <div class="phase-number">Phase 0</div>
+                    <div class="phase-info">
+                        <h2>ซ่อมฐานเลข — Algebra Refresher</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–4 สัปดาห์</span>
+                            <span class="meta-item">🎯 เป้าหมาย: มองแล้วไม่กลัว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ทุกอย่างในคณิตศาสตร์ชั้นสูงใช้ <strong>พีชคณิตพื้นฐาน</strong> เป็นเครื่องมือ ถ้าฐานตรงนี้ไม่แน่น จะติดทุก Phase ถัดไป เปรียบเหมือนการเขียนโค้ดโดยไม่รู้จัก syntax — ต่อให้เข้าใจ logic ก็เขียนไม่ออก</p>
+                    </div>
+
+                    <!-- Topic: Fractions -->
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📐 เศษส่วน (Fractions)</h3>
+                            <span class="topic-badge">พื้นฐาน</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>เศษส่วนคือ "การแบ่ง" — $\frac{a}{b}$ หมายถึงเอาของทั้งหมดมาแบ่งเป็น $b$ ส่วน แล้วหยิบมา $a$ ส่วน</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{2}{3} + \frac{1}{4} = \frac{8}{12} + \frac{3}{12} = \frac{11}{12}$</span>
+                                        <span class="eq-explain">หา ค.ร.น. แล้วบวกเศษ</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}$</span>
+                                        <span class="eq-explain">คูณเศษกับเศษ ส่วนกับส่วน</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Probability:</strong> $P(A) = \frac{\text{จำนวนผลที่ต้องการ}}{\text{จำนวนผลทั้งหมด}}$</li>
+                                    <li><strong>Finance:</strong> อัตราส่วนต่าง ๆ เช่น Sharpe Ratio $= \frac{R_p - R_f}{\sigma_p}$</li>
+                                    <li><strong>Calculus:</strong> สัดส่วนการเปลี่ยนแปลง $\frac{\Delta y}{\Delta x}$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic: Exponents -->
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>⚡ เลขยกกำลัง (Exponents)</h3>
+                            <span class="topic-badge">สำคัญมาก</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>$a^n$ = คูณ $a$ ซ้ำ $n$ รอบ — แต่ที่เจ๋งกว่าคือมันอธิบาย <strong>การเติบโตแบบทวีคูณ</strong></p>
+                            </div>
+                            <div class="example-block">
+                                <h4>กฎสำคัญ</h4>
+                                <div class="rules-grid">
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$a^m \cdot a^n = a^{m+n}$</span>
+                                        <span class="rule-name">กฎการคูณ</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{a^m}{a^n} = a^{m-n}$</span>
+                                        <span class="rule-name">กฎการหาร</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$(a^m)^n = a^{mn}$</span>
+                                        <span class="rule-name">กฎยกกำลังซ้อน</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$a^0 = 1$</span>
+                                        <span class="rule-name">กำลังศูนย์</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$a^{-n} = \frac{1}{a^n}$</span>
+                                        <span class="rule-name">กำลังลบ</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$a^{1/n} = \sqrt[n]{a}$</span>
+                                        <span class="rule-name">กำลังเศษส่วน</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Finance:</strong> ดอกเบี้ยทบต้น $A = P(1+r)^t$ — เงินเติบโตแบบ exponential</li>
+                                    <li><strong>ML:</strong> Learning rate decay $\alpha_t = \alpha_0 \cdot \beta^t$</li>
+                                    <li><strong>Physics:</strong> การสลายตัวกัมมันตรังสี $N(t) = N_0 e^{-\lambda t}$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic: Logarithm & Exponential -->
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🌟 Log & Exponential — ตัว Boss ของ Phase 0</h3>
+                            <span class="topic-badge badge-critical">โผล่ทุกศาสตร์</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Exponential</strong> $e^x$ = "การเติบโตที่อัตราเร็วเท่ากับขนาดปัจจุบัน"<br>
+                                <strong>Logarithm</strong> $\ln(x)$ = "ตัวกลับ (inverse) ของ exponential" — ถามว่า "ยกกำลังเท่าไหร่ถึงจะได้ค่านี้?"</p>
+                                <div class="key-identity">
+                                    <span>$\ln(e^x) = x$ &nbsp;&nbsp;และ&nbsp;&nbsp; $e^{\ln(x)} = x$</span>
+                                    <span class="identity-label">สองตัวนี้เป็นคู่ inverse กัน</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง Intuitive</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$e^{0.05 \times 10} = e^{0.5} \approx 1.65$</span>
+                                        <span class="eq-explain">ดอกเบี้ย 5% ต่อปี เงินจะเพิ่ม 65% ใน 10 ปี (ทบต้นต่อเนื่อง)</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\ln(2) \approx 0.693$</span>
+                                        <span class="eq-explain">"Rule of 70" — เงินเพิ่มเป็น 2 เท่าเมื่อ rate × time ≈ 0.693</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 โผล่ตรงไหนบ้าง?</h4>
+                                <div class="usage-grid">
+                                    <div class="usage-item">
+                                        <span class="usage-field">Quantum</span>
+                                        <span>$\psi(t) = e^{-iEt/\hbar}$ — wave function evolution</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Signal</span>
+                                        <span>$e^{i\omega t}$ — Fourier basis function</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Finance</span>
+                                        <span>$S_t = S_0 e^{(\mu - \frac{\sigma^2}{2})t + \sigma W_t}$ — GBM</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">ML</span>
+                                        <span>$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum e^{x_j}}$</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Statistics</span>
+                                        <span>$\text{Log-likelihood} = \sum \ln P(x_i | \theta)$</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic: Equation Manipulation -->
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🔧 การย้ายข้าง & จัดรูปสมการ</h3>
+                            <span class="topic-badge">ทักษะพื้นฐาน</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>สมการ = ตาชั่ง — ทำอะไรข้างซ้าย ต้องทำข้างขวาด้วย เป้าหมายคือ "isolate" ตัวแปรที่สนใจ</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$3x + 7 = 22 \implies 3x = 15 \implies x = 5$</span>
+                                        <span class="eq-explain">ลบ 7 ทั้งสองข้าง แล้วหารด้วย 3</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$e^{rt} = 2 \implies rt = \ln(2) \implies t = \frac{\ln(2)}{r}$</span>
+                                        <span class="eq-explain">ใช้ ln ถอด exponential — หาเวลาที่เงินเพิ่มเป็น 2 เท่า</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 0</h4>
+                            <p>เห็น $e^x$, $\ln(x)$, $a^n$, เศษส่วน, สมการ แล้ว <strong>มองแล้วไม่กลัว</strong> — จัดรูปได้ ย้ายข้างได้ อ่านออก</p>
+                        </div>
+                    </div>
+                <div class="practice-section">
+  <div class="section-header" style="margin-bottom: 30px;">
+      <h3 class="section-title">📚 บททดสอบ Phase 0 (20 ข้อ)</h3>
+      <p class="section-desc">ถ้าทำผ่านได้ด้วยความเข้าใจ (ไม่ใช่ท่องจำ) ถือว่าพร้อมลุย Phase 1 แบบไม่สะดุด</p>
+  </div>
+
+  <!-- Topic 1: Fractions -->
+  <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--accent-blue); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">📐 หมวด 1: เศษส่วน (Fractions)</h4>
+  <div class="practice-cards">
+    <!-- Level 1 -->
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-foundation">Level 1: Warm-up</span></div>
+      <p class="problem-stmt">คำนวณ $\frac{3}{5} + \frac{1}{4} - \frac{1}{2}$</p>
+      <button class="toggle-btn" data-target="hint_f1">Hint</button>
+      <button class="toggle-btn" data-target="sol_f1">Solution</button>
+      <p class="problem-hint" id="hint_f1" hidden>หา ค.ร.น. ของ 5, 4, 2 คือ 20</p>
+      <pre class="solution" id="sol_f1" hidden>$\frac{12}{20} + \frac{5}{20} - \frac{10}{20} = \frac{7}{20}$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-foundation">Level 1: Warm-up</span></div>
+      <p class="problem-stmt">คำนวณ $\frac{2}{3} \times \frac{9}{4} \div \frac{3}{2}$</p>
+      <button class="toggle-btn" data-target="hint_f2">Hint</button>
+      <button class="toggle-btn" data-target="sol_f2">Solution</button>
+      <p class="problem-hint" id="hint_f2" hidden>เปลี่ยนหารเป็นคูณกลับเศษเป็นส่วน</p>
+      <pre class="solution" id="sol_f2" hidden>$\frac{2}{3} \times \frac{9}{4} \times \frac{2}{3} = 1$</pre>
+    </div>
+    <!-- Level 2 -->
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-advanced">Level 2: Workout</span></div>
+      <p class="problem-stmt">จัดรูป $\frac{1}{x} + \frac{1}{y}$ ให้เป็นเศษส่วนก้อนเดียว</p>
+      <button class="toggle-btn" data-target="hint_f3">Hint</button>
+      <button class="toggle-btn" data-target="sol_f3">Solution</button>
+      <p class="problem-hint" id="hint_f3" hidden>ทำส่วนให้เท่ากัน คือ $xy$</p>
+      <pre class="solution" id="sol_f3" hidden>$\frac{y}{xy} + \frac{x}{xy} = \frac{x+y}{xy}$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-advanced">Level 2: Workout</span></div>
+      <p class="problem-stmt">จัดรูปเศษซ้อน $\frac{\frac{a}{b}}{\frac{c}{d}}$</p>
+      <button class="toggle-btn" data-target="hint_f4">Hint</button>
+      <button class="toggle-btn" data-target="sol_f4">Solution</button>
+      <p class="problem-hint" id="hint_f4" hidden>เศษซ้อนคือการหารกัน</p>
+      <pre class="solution" id="sol_f4" hidden>$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c} = \frac{ad}{bc}$</pre>
+    </div>
+    <!-- Level 3 -->
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-expert">Level 3: Boss Fight</span></div>
+      <p class="problem-stmt">แก้สมการ $\frac{2}{x-1} - \frac{1}{x+1} = \frac{1}{x^2-1}$</p>
+      <button class="toggle-btn" data-target="hint_f5">Hint</button>
+      <button class="toggle-btn" data-target="sol_f5">Solution</button>
+      <p class="problem-hint" id="hint_f5" hidden>สังเกตว่า $x^2-1 = (x-1)(x+1)$ ให้เอา $(x^2-1)$ คูณตลอดสมการ</p>
+      <pre class="solution" id="sol_f5" hidden>$2(x+1) - 1(x-1) = 1$<br>$2x + 2 - x + 1 = 1$<br>$x + 3 = 1 \implies x = -2$</pre>
+    </div>
+  </div>
+
+  <!-- Topic 2: Exponents -->
+  <h4 style="margin-top: 3rem; margin-bottom: 1rem; color: var(--accent-purple); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">⚡ หมวด 2: เลขยกกำลัง (Exponents)</h4>
+  <div class="practice-cards">
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-foundation">Level 1: Warm-up</span></div>
+      <p class="problem-stmt">หาค่าของ $3^{-2} \times 3^4$</p>
+      <button class="toggle-btn" data-target="hint_e1">Hint</button>
+      <button class="toggle-btn" data-target="sol_e1">Solution</button>
+      <p class="problem-hint" id="hint_e1" hidden>ฐานเหมือนกันคูณกัน นำเลขชี้กำลังมาบวกกัน</p>
+      <pre class="solution" id="sol_e1" hidden>$3^{-2+4} = 3^2 = 9$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-foundation">Level 1: Warm-up</span></div>
+      <p class="problem-stmt">หาค่าของ $\left(\frac{2}{5}\right)^{-1}$</p>
+      <button class="toggle-btn" data-target="hint_e2">Hint</button>
+      <button class="toggle-btn" data-target="sol_e2">Solution</button>
+      <p class="problem-hint" id="hint_e2" hidden>ยกกำลังลบ 1 คือส่วนกลับ</p>
+      <pre class="solution" id="sol_e2" hidden>$\frac{5}{2}$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-advanced">Level 2: Workout</span></div>
+      <p class="problem-stmt">จัดรูป $x^{1/2} \cdot x^{3/2}$ ให้ง่ายที่สุด</p>
+      <button class="toggle-btn" data-target="hint_e3">Hint</button>
+      <button class="toggle-btn" data-target="sol_e3">Solution</button>
+      <p class="problem-hint" id="hint_e3" hidden>บวกเศษส่วนของเลขชี้กำลัง</p>
+      <pre class="solution" id="sol_e3" hidden>$x^{(1/2 + 3/2)} = x^{4/2} = x^2$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-advanced">Level 2: Workout</span></div>
+      <p class="problem-stmt">หาค่า $x$ จากสมการ $2^{x+1} = 16$</p>
+      <button class="toggle-btn" data-target="hint_e4">Hint</button>
+      <button class="toggle-btn" data-target="sol_e4">Solution</button>
+      <p class="problem-hint" id="hint_e4" hidden>เปลี่ยน 16 ให้เป็นฐาน 2</p>
+      <pre class="solution" id="sol_e4" hidden>$2^{x+1} = 2^4 \implies x+1 = 4 \implies x=3$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-expert">Level 3: Boss Fight</span></div>
+      <p class="problem-stmt">จัดรูป $\frac{\sqrt{x} \cdot x^{-1/3}}{x^2}$ ให้อยู่ในรูป $x^n$</p>
+      <button class="toggle-btn" data-target="hint_e5">Hint</button>
+      <button class="toggle-btn" data-target="sol_e5">Solution</button>
+      <p class="problem-hint" id="hint_e5" hidden>เปลี่ยนรากเป็นกำลังเศษส่วน แล้วรวบเศษก่อนย้ายส่วนขึ้นไปลบ</p>
+      <pre class="solution" id="sol_e5" hidden>$\frac{x^{1/2} \cdot x^{-1/3}}{x^2} = \frac{x^{1/6}}{x^2} = x^{-11/6}$</pre>
+    </div>
+  </div>
+
+  <!-- Topic 3: Logarithm & Exponential -->
+  <h4 style="margin-top: 3rem; margin-bottom: 1rem; color: var(--accent-orange); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">🌟 หมวด 3: Log & Exponential</h4>
+  <div class="practice-cards">
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-foundation">Level 1: Warm-up</span></div>
+      <p class="problem-stmt">หาค่าของ $\log_2(8)$</p>
+      <button class="toggle-btn" data-target="hint_l1">Hint</button>
+      <button class="toggle-btn" data-target="sol_l1">Solution</button>
+      <p class="problem-hint" id="hint_l1" hidden>ถามตัวเองว่า 2 ยกกำลังอะไรได้ 8</p>
+      <pre class="solution" id="sol_l1" hidden>$2^3 = 8 \implies \log_2(8) = 3$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-foundation">Level 1: Warm-up</span></div>
+      <p class="problem-stmt">หาค่าของ $\ln(e^5)$</p>
+      <button class="toggle-btn" data-target="hint_l2">Hint</button>
+      <button class="toggle-btn" data-target="sol_l2">Solution</button>
+      <p class="problem-hint" id="hint_l2" hidden>$\ln$ กับ $e$ เป็น inverse กัน หักล้างกันได้เลย</p>
+      <pre class="solution" id="sol_l2" hidden>$5$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-advanced">Level 2: Workout</span></div>
+      <p class="problem-stmt">รวมพจน์ $\ln(A) + \ln(B) - 2\ln(C)$</p>
+      <button class="toggle-btn" data-target="hint_l3">Hint</button>
+      <button class="toggle-btn" data-target="sol_l3">Solution</button>
+      <p class="problem-hint" id="hint_l3" hidden>ใช้กฎ: บวกคือคูณ ลบคือหาร และตัวเลขข้างหน้าตบไปเป็นชี้กำลังได้</p>
+      <pre class="solution" id="sol_l3" hidden>$\ln(A) + \ln(B) - \ln(C^2) = \ln\left(\frac{AB}{C^2}\right)$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-advanced">Level 2: Workout</span></div>
+      <p class="problem-stmt">แก้สมการ $e^{2x} = 10$ หาค่า $x$</p>
+      <button class="toggle-btn" data-target="hint_l4">Hint</button>
+      <button class="toggle-btn" data-target="sol_l4">Solution</button>
+      <p class="problem-hint" id="hint_l4" hidden>Take $\ln$ เข้าไปทั้งสองข้าง</p>
+      <pre class="solution" id="sol_l4" hidden>$\ln(e^{2x}) = \ln(10) \implies 2x = \ln(10) \implies x = \frac{\ln(10)}{2}$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-expert">Level 3: Boss Fight</span></div>
+      <p class="problem-stmt">ให้ $P(t) = P_0 e^{rt}$ ถ้า $P(t) = 3P_0$ จะใช้เวลา $t$ เท่าใด?</p>
+      <button class="toggle-btn" data-target="hint_l5">Hint</button>
+      <button class="toggle-btn" data-target="sol_l5">Solution</button>
+      <p class="problem-hint" id="hint_l5" hidden>แทนค่า แล้วตัด $P_0$ ออก จากนั้นแก้สมการหา $t$</p>
+      <pre class="solution" id="sol_l5" hidden>$3P_0 = P_0 e^{rt} \implies 3 = e^{rt}$<br>Take $\ln$: $\ln(3) = rt \implies t = \frac{\ln(3)}{r}$</pre>
+    </div>
+  </div>
+
+  <!-- Topic 4: Equation Manipulation -->
+  <h4 style="margin-top: 3rem; margin-bottom: 1rem; color: var(--accent-cyan); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">🔧 หมวด 4: การจัดรูปสมการ (Equation Manipulation)</h4>
+  <div class="practice-cards">
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-foundation">Level 1: Warm-up</span></div>
+      <p class="problem-stmt">แก้สมการ $3(x - 2) = 15$</p>
+      <button class="toggle-btn" data-target="hint_m1">Hint</button>
+      <button class="toggle-btn" data-target="sol_m1">Solution</button>
+      <p class="problem-hint" id="hint_m1" hidden>หารด้วย 3 ก่อน แล้วค่อยบวก 2</p>
+      <pre class="solution" id="sol_m1" hidden>$x - 2 = 5 \implies x = 7$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-foundation">Level 1: Warm-up</span></div>
+      <p class="problem-stmt">แก้ระบบสมการ: $x + y = 10$ และ $x - y = 4$</p>
+      <button class="toggle-btn" data-target="hint_m2">Hint</button>
+      <button class="toggle-btn" data-target="sol_m2">Solution</button>
+      <p class="problem-hint" id="hint_m2" hidden>นำสองสมการมาบวกกันเพื่อกำจัด $y$</p>
+      <pre class="solution" id="sol_m2" hidden>$2x = 14 \implies x = 7$<br>แทน $x$: $7 + y = 10 \implies y = 3$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-advanced">Level 2: Workout</span></div>
+      <p class="problem-stmt">จัดรูปหา $r$ จากสมการ $A = \pi r^2$</p>
+      <button class="toggle-btn" data-target="hint_m3">Hint</button>
+      <button class="toggle-btn" data-target="sol_m3">Solution</button>
+      <p class="problem-hint" id="hint_m3" hidden>ย้าย $\pi$ ไปหาร แล้วใส่รากที่สอง</p>
+      <pre class="solution" id="sol_m3" hidden>$\frac{A}{\pi} = r^2 \implies r = \sqrt{\frac{A}{\pi}}$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-advanced">Level 2: Workout</span></div>
+      <p class="problem-stmt">จัดรูปสมการ $3x - 4y = 12$ ให้อยู่ในรูป $y = mx + c$</p>
+      <button class="toggle-btn" data-target="hint_m4">Hint</button>
+      <button class="toggle-btn" data-target="sol_m4">Solution</button>
+      <p class="problem-hint" id="hint_m4" hidden>ย้ายเทอมที่มี $x$ ไปฝั่งขวา แล้วหารด้วย -4</p>
+      <pre class="solution" id="sol_m4" hidden>$-4y = -3x + 12 \implies y = \frac{3}{4}x - 3$</pre>
+    </div>
+    <div class="practice-card">
+      <div style="margin-bottom: 8px;"><span class="phase-tag tag-expert">Level 3: Boss Fight</span></div>
+      <p class="problem-stmt">จัดรูป $\sigma^2 = p(1-p)$ เพื่อหาค่า $p$ ให้อยู่ในรูปของ $\sigma$</p>
+      <button class="toggle-btn" data-target="hint_m5">Hint</button>
+      <button class="toggle-btn" data-target="sol_m5">Solution</button>
+      <p class="problem-hint" id="hint_m5" hidden>กระจายแล้วจัดให้อยู่ในรูป $ap^2 + bp + c = 0$ แล้วใช้ Quadratic Formula</p>
+      <pre class="solution" id="sol_m5" hidden>$\sigma^2 = p - p^2 \implies p^2 - p + \sigma^2 = 0$<br>$a=1, b=-1, c=\sigma^2$<br>$p = \frac{1 \pm \sqrt{1 - 4\sigma^2}}{2}$</pre>
+    </div>
+  </div>
+</div>
+</div>
+
+            </article>
+            <div style="display:flex; justify-content:space-between; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);"><div></div><a href="phase-1.html" class="btn btn-primary">ถัดไป (Phase 1) →</a></div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

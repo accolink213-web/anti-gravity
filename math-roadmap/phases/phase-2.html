@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#roadmap" class="nav-link">กลับหน้าหลัก (Roadmap)</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <section class="phases-detail" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <article class="phase-block visible" id="phase-2">
+                <div class="phase-header-bar critical">
+                    <div class="phase-number">Phase 2</div>
+                    <div class="phase-info">
+                        <h2>Calculus — Core Layer ⭐</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–4 เดือน</span>
+                            <span class="meta-item">🎯 สำคัญที่สุดในทุก Phase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>Calculus คือ <strong>"ภาษาของการเปลี่ยนแปลง"</strong> — ทุกอย่างในฟิสิกส์, การเงิน, ML, quantum ใช้ Calculus เป็นรากฐาน ถ้าเข้าใจ Calculus ดี เท่ากับปลดล็อค 80% ของสมการทั้งหมดที่จะเจอ</p>
+                    </div>
+
+                    <!-- Derivative -->
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>⚡ Derivative — "เปลี่ยนเร็วแค่ไหน?"</h3>
+                            <span class="topic-badge badge-critical">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Derivative คือ <strong>slope ณ จุดหนึ่ง</strong> — ไม่ใช่ slope เฉลี่ย แต่คือ "ตอนนี้ เร็วแค่ไหน?"</p>
+                                <div class="key-identity">
+                                    <span>$f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x} = \frac{df}{dx}$</span>
+                                    <span class="identity-label">ลิมิตของอัตราการเปลี่ยนแปลง เมื่อ $\Delta x$ เข้าใกล้ 0</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>กฎการหา Derivative</h4>
+                                <div class="rules-grid">
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}(x^n) = nx^{n-1}$</span>
+                                        <span class="rule-name">Power Rule</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}(e^x) = e^x$</span>
+                                        <span class="rule-name">$e^x$ คงที่!</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}\ln(x) = \frac{1}{x}$</span>
+                                        <span class="rule-name">Log Rule</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}\sin(x) = \cos(x)$</span>
+                                        <span class="rule-name">Trig Rule</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$(fg)' = f'g + fg'$</span>
+                                        <span class="rule-name">Product Rule</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)$</span>
+                                        <span class="rule-name">Chain Rule</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่างจริง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$v(t) = \frac{dx}{dt}$</span>
+                                        <span class="eq-explain"><strong>Physics:</strong> ความเร็ว = อนุพันธ์ของตำแหน่ง — "ตำแหน่งเปลี่ยนเร็วแค่ไหน?"</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{dP}{dt}$</span>
+                                        <span class="eq-explain"><strong>Finance:</strong> ราคาเปลี่ยนเร็วแค่ไหน — momentum ของตลาด</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\nabla_\theta \mathcal{L}(\theta)$</span>
+                                        <span class="eq-explain"><strong>ML:</strong> Gradient descent — หา derivative ของ loss เพื่อปรับ model</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\Delta = \frac{\partial V}{\partial S}$</span>
+                                        <span class="eq-explain"><strong>Options:</strong> Delta = derivative ของราคา option ต่อราคาหุ้น</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integral -->
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>∫ Integral — "สะสมอะไรบางอย่าง"</h3>
+                            <span class="topic-badge badge-critical">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Integral คือ <strong>การบวกสะสม</strong> — เอาชิ้นเล็ก ๆ มาต่อกัน ใน Calculus มันคือ "พื้นที่ใต้กราฟ"</p>
+                                <div class="key-identity">
+                                    <span>$\int_a^b f(x)\,dx = \text{พื้นที่ใต้ } f(x) \text{ จาก } a \text{ ถึง } b$</span>
+                                    <span class="identity-label">Definite Integral = การสะสมจาก a ถึง b</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>ความสัมพันธ์ Derivative ↔ Integral</h4>
+                                <div class="dual-concept">
+                                    <div class="dual-item">
+                                        <span class="dual-symbol">$\frac{d}{dx}$</span>
+                                        <span class="dual-meaning">แยกชิ้นส่วน → ดูอัตราเปลี่ยน</span>
+                                    </div>
+                                    <div class="dual-arrow">⟷</div>
+                                    <div class="dual-item">
+                                        <span class="dual-symbol">$\int dx$</span>
+                                        <span class="dual-meaning">รวมชิ้นส่วน → ดูผลสะสม</span>
+                                    </div>
+                                </div>
+                                <div class="key-identity" style="margin-top: 1rem;">
+                                    <span>$\int_a^b f'(x)\,dx = f(b) - f(a)$</span>
+                                    <span class="identity-label">Fundamental Theorem of Calculus — สะพานเชื่อม derivative กับ integral</span>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$P(a \le X \le b) = \int_a^b f(x)\,dx$</span>
+                                        <span class="eq-explain"><strong>Probability:</strong> ความน่าจะเป็น = พื้นที่ใต้ PDF</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\mathbb{E}[X] = \int x \cdot f(x)\,dx$</span>
+                                        <span class="eq-explain"><strong>Statistics:</strong> ค่าคาดหวัง = ค่าเฉลี่ยถ่วงน้ำหนัก</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$W = \int F \cdot dx$</span>
+                                        <span class="eq-explain"><strong>Physics:</strong> งาน = สะสมแรงตลอดระยะทาง</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\int_0^T r(t)\,dt$</span>
+                                        <span class="eq-explain"><strong>Finance:</strong> Cumulative return ตลอดช่วงเวลา</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 2</h4>
+                            <p>เห็น Differential equation แล้ว <strong>ไม่ panic</strong> — รู้ว่า $\frac{dx}{dt}$ คือ "อัตราเปลี่ยน" และ $\int$ คือ "สะสม"</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div style="display:flex; justify-content:space-between; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);"><a href="phase-1.html" class="btn btn-secondary">← ก่อนหน้า (Phase 1)</a><a href="phase-3.html" class="btn btn-primary">ถัดไป (Phase 3) →</a></div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

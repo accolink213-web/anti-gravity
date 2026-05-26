@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#roadmap" class="nav-link">กลับหน้าหลัก (Roadmap)</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <section class="phases-detail" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <article class="phase-block visible" id="phase-1">
+                <div class="phase-header-bar core">
+                    <div class="phase-number">Phase 1</div>
+                    <div class="phase-info">
+                        <h2>ฟังก์ชัน + Graph Intuition</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 1–2 เดือน</span>
+                            <span class="meta-item">🎯 จุดที่คนข้ามแล้วพังหนัก</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ฟังก์ชันคือ <strong>"เครื่องจักรที่รับ input แล้วพ่น output"</strong> — ถ้าเข้าใจฟังก์ชันเป็นภาพ (กราฟ) ไม่ใช่แค่สูตร คุณจะ "เห็น" พฤติกรรมของระบบได้ Quantum และ Quant เต็มไปด้วย <strong>ฟังก์ชันที่กำลัง evolve</strong></p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📊 Function คืออะไร?</h3>
+                            <span class="topic-badge">Core Concept</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>$f(x)$ = กล่องดำที่รับค่า $x$ แล้วให้ค่า $f(x)$ กลับมา — <strong>ทุก input มี output เดียว</strong></p>
+                                <p>กราฟคือ "ภาพ" ของฟังก์ชัน — แกน $x$ คือ input, แกน $y$ คือ output</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ฟังก์ชันสำคัญที่ต้องรู้จัก</h4>
+                                <div class="function-gallery">
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = ax + b$</div>
+                                        <div class="func-name">Linear</div>
+                                        <div class="func-intuition">เส้นตรง — เปลี่ยนด้วยอัตราคงที่</div>
+                                        <div class="func-example">ค่าแท็กซี่: ค่าเริ่ม + (ราคา × ระยะทาง)</div>
+                                    </div>
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = x^2$</div>
+                                        <div class="func-name">Quadratic</div>
+                                        <div class="func-intuition">โค้ง U — ยิ่งไปยิ่งเร็ว</div>
+                                        <div class="func-example">พลังงานจลน์ $KE = \frac{1}{2}mv^2$</div>
+                                    </div>
+                                    <div class="func-card accent">
+                                        <div class="func-eq">$y = e^x$</div>
+                                        <div class="func-name">Exponential</div>
+                                        <div class="func-intuition">ระเบิด! — โตตามขนาดตัวเอง</div>
+                                        <div class="func-example">การแพร่กระจายไวรัส, ดอกเบี้ยทบต้น</div>
+                                    </div>
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = \ln(x)$</div>
+                                        <div class="func-name">Logarithmic</div>
+                                        <div class="func-intuition">โตเร็วตอนแรก แล้วช้าลงเรื่อย ๆ</div>
+                                        <div class="func-example">การรับรู้ของมนุษย์ (Weber-Fechner law)</div>
+                                    </div>
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = \sin(x)$</div>
+                                        <div class="func-name">Sinusoidal</div>
+                                        <div class="func-intuition">แกว่งไปมา — คลื่น!</div>
+                                        <div class="func-example">คลื่นเสียง, ไฟ AC, quantum wave</div>
+                                    </div>
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = \frac{1}{x}$</div>
+                                        <div class="func-name">Hyperbolic</div>
+                                        <div class="func-intuition">ยิ่งเยอะ ยิ่งได้น้อย</div>
+                                        <div class="func-example">Diminishing returns, กฎอุปสงค์</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📈 Slope & Rate of Change</h3>
+                            <span class="topic-badge badge-critical">สำคัญมาก</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Slope</strong> (ความชัน) = "เปลี่ยนเร็วแค่ไหน?" — เป็นบันไดขั้นแรกสู่ Calculus</p>
+                                <div class="key-identity">
+                                    <span>$\text{slope} = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}$</span>
+                                    <span class="identity-label">อัตราการเปลี่ยนแปลงเฉลี่ย</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>Intuition</h4>
+                                <div class="intuition-compare">
+                                    <div class="compare-item">
+                                        <span class="compare-visual">↗ ชันมาก</span>
+                                        <span>= เปลี่ยนเร็ว (เช่น หุ้นพุ่ง)</span>
+                                    </div>
+                                    <div class="compare-item">
+                                        <span class="compare-visual">→ ราบ</span>
+                                        <span>= ไม่เปลี่ยน (sideway)</span>
+                                    </div>
+                                    <div class="compare-item">
+                                        <span class="compare-visual">↘ ชันลง</span>
+                                        <span>= ลดลง (ราคาตก)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Finance:</strong> Return = slope ของ equity curve</li>
+                                    <li><strong>Physics:</strong> ความเร็ว = slope ของตำแหน่ง-เวลา</li>
+                                    <li><strong>ML:</strong> Gradient = slope ในหลายมิติ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 1</h4>
+                            <p>เห็นสมการแล้ว <strong>"เห็นภาพในหัว"</strong> ว่ากราฟหน้าตาเป็นอย่างไร มันโตหรือลด, แกว่งหรือราบ — ไม่ใช่แค่แทนค่า</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div style="display:flex; justify-content:space-between; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);"><a href="phase-0.html" class="btn btn-secondary">← ก่อนหน้า (Phase 0)</a><a href="phase-2.html" class="btn btn-primary">ถัดไป (Phase 2) →</a></div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

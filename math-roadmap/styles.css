@@ -792,7 +792,66 @@ strong {
     z-index: 1;
 }
 
-/* Phase Nav Pills */
+.practice-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.practice-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.practice-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+  transition: var(--ease-out) all 0.3s;
+}
+
+.practice-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.problem-stmt {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.toggle-btn {
+  background: var(--gradient-main);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  margin-right: 0.4rem;
+  font-size: 0.85rem;
+  transition: var(--ease-out) all 0.2s;
+}
+
+.toggle-btn:hover {
+  opacity: 0.9;
+}
+
+.problem-hint,
+.solution {
+  margin-top: 0.4rem;
+  background: rgba(255,255,255,0.04);
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
 .phase-nav {
     display: flex;
     gap: 6px;

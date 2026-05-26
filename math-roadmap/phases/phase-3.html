@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#roadmap" class="nav-link">กลับหน้าหลัก (Roadmap)</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <section class="phases-detail" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <article class="phase-block visible" id="phase-3">
+                <div class="phase-header-bar core">
+                    <div class="phase-number">Phase 3</div>
+                    <div class="phase-info">
+                        <h2>Linear Algebra — ภาษาของระบบหลายมิติ</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 1–3 เดือน</span>
+                            <span class="meta-item">🎯 เรียนคู่กับ Calculus ได้</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ถ้า Calculus คือ "ภาษาของการเปลี่ยนแปลง" Linear Algebra คือ <strong>"ภาษาของระบบที่มีหลายตัวแปร"</strong> — ทุกครั้งที่มีข้อมูลมากกว่า 1 มิติ Linear Algebra จะเป็นเครื่องมือหลัก</p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>➡️ Vectors — ลูกศรในอวกาศ</h3>
+                            <span class="topic-badge">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Vector = <strong>"ทิศทาง + ขนาด"</strong> — ไม่ใช่แค่ตัวเลข แต่คือ "ชี้ไปทางไหน แรงแค่ไหน"</p>
+                                <div class="key-identity">
+                                    <span>$\vec{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$ — vector ใน $n$ มิติ</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>Operations สำคัญ</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta$</span>
+                                        <span class="eq-explain"><strong>Dot Product:</strong> วัด "ความคล้าย" ของทิศทาง — ใช้ใน ML (cosine similarity)</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\|\vec{v}\| = \sqrt{v_1^2 + v_2^2 + \cdots}$</span>
+                                        <span class="eq-explain"><strong>Norm:</strong> ขนาดของ vector — ระยะทาง</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📋 Matrix — การแปลงข้อมูล</h3>
+                            <span class="topic-badge">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Matrix = <strong>"เครื่องจักรแปลง vector"</strong> — ใส่ vector เข้าไป ได้ vector ใหม่ออกมา มันยืด หมุน สะท้อน หรือฉายข้อมูล</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 2x \\ 3y \end{pmatrix}$</span>
+                                        <span class="eq-explain">Matrix นี้ "ยืด" แกน x เป็น 2 เท่า แกน y เป็น 3 เท่า</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>ML:</strong> Neural network ทุก layer = matrix multiplication: $\vec{y} = W\vec{x} + \vec{b}$</li>
+                                    <li><strong>Quantum:</strong> Operator ทุกตัว = matrix ที่ทำหน้าที่กับ quantum state</li>
+                                    <li><strong>Finance:</strong> Correlation matrix ระหว่างสินทรัพย์</li>
+                                    <li><strong>Graphics:</strong> Rotation, scaling, projection ใน 3D</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🌟 Eigenvalues & Eigenvectors — "รูปแบบที่ระบบชอบ"</h3>
+                            <span class="topic-badge badge-critical">สำคัญที่สุด</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>เมื่อ matrix $A$ ทำกับ vector $\vec{x}$ แล้ว <strong>ทิศทางไม่เปลี่ยน</strong> แค่ scale — vector นั้นคือ <strong>Eigenvector</strong> และค่า scale คือ <strong>Eigenvalue</strong></p>
+                                <div class="key-identity">
+                                    <span>$A\vec{x} = \lambda\vec{x}$</span>
+                                    <span class="identity-label">$\vec{x}$ = eigenvector, $\lambda$ = eigenvalue — "ทิศทางที่ระบบรักษาไว้"</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>Intuition</h4>
+                                <p>ลองนึกภาพเขย่ากะทะทราย — ทรายจะจัดตัวเป็นรูปแบบเฉพาะ นั่นคือ "eigenvector" ของการสั่น — <strong>รูปแบบที่ระบบ "ชอบ"</strong></p>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <div class="usage-grid">
+                                    <div class="usage-item">
+                                        <span class="usage-field">Quantum</span>
+                                        <span>$\hat{H}|\psi\rangle = E|\psi\rangle$ — Eigenstate = สถานะที่วัดได้ ค่า $E$ = พลังงาน</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">ML / PCA</span>
+                                        <span>Eigenvectors ของ covariance matrix = ทิศทางที่ข้อมูลมีความแปรปรวนมากสุด</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Markov</span>
+                                        <span>Eigenvector ที่ $\lambda=1$ = stationary distribution = สมดุลระยะยาว</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Google</span>
+                                        <span>PageRank = eigenvector ของ web graph matrix</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 3</h4>
+                            <p>เห็น $A\vec{x} = \lambda\vec{x}$ แล้วอ่านออกว่า <strong>"ระบบนี้มีรูปแบบอะไรที่คงอยู่"</strong> — เข้าใจ quantum state, PCA, Markov ได้ทันที</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div style="display:flex; justify-content:space-between; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);"><a href="phase-2.html" class="btn btn-secondary">← ก่อนหน้า (Phase 2)</a><a href="phase-4.html" class="btn btn-primary">ถัดไป (Phase 4) →</a></div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>

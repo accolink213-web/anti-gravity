@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="../index.html#roadmap" class="nav-link">กลับหน้าหลัก (Roadmap)</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <section class="phases-detail" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <article class="phase-block visible" id="phase-6">
+                <div class="phase-header-bar advanced">
+                    <div class="phase-number">Phase 6</div>
+                    <div class="phase-info">
+                        <h2>Multivariable Calculus — หลายตัวแปร</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 1–2 เดือน</span>
+                            <span class="meta-item">🎯 Optimization & Gradient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>โลกจริงมีหลายตัวแปร — ราคาหุ้นขึ้นกับ 100 ปัจจัย, neural network มีล้าน parameter Multivariable Calculus คือเครื่องมือจัดการ <strong>"การเปลี่ยนแปลงในหลายมิติ"</strong></p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📐 Partial Derivatives</h3>
+                            <span class="topic-badge">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Partial derivative</strong> $\frac{\partial f}{\partial x}$ = "เปลี่ยน $x$ อย่างเดียว ตัวอื่นตรึงไว้ ดูว่า $f$ เปลี่ยนแค่ไหน"</p>
+                                <div class="key-identity">
+                                    <span>$f(x,y) = x^2y + 3y \implies \frac{\partial f}{\partial x} = 2xy, \quad \frac{\partial f}{\partial y} = x^2 + 3$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🧭 Gradient — "ทิศทางที่ขึ้นเร็วสุด"</h3>
+                            <span class="topic-badge badge-critical">ตัว Boss</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Gradient = vector ของ partial derivatives ทุกตัว — ชี้ไปทาง <strong>"ฟังก์ชันเพิ่มเร็วที่สุด"</strong></p>
+                                <div class="key-identity">
+                                    <span>$\nabla f(x,y) = \begin{pmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{pmatrix}$</span>
+                                    <span class="identity-label">"ลูกศร" ชี้ทางขึ้นเขาเร็วสุด — ถ้าอยากลง ก็ไปทางตรงข้าม</span>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <div class="usage-grid">
+                                    <div class="usage-item">
+                                        <span class="usage-field">ML</span>
+                                        <span>Gradient Descent: $\theta_{t+1} = \theta_t - \alpha \nabla_\theta \mathcal{L}$ — ปรับ model ไปทาง error ลดเร็วสุด</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Optimization</span>
+                                        <span>หาจุดต่ำสุด/สูงสุดของฟังก์ชันหลายตัวแปร</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Physics</span>
+                                        <span>$\vec{F} = -\nabla V$ — แรง = gradient ของพลังงานศักย์ (ชี้ทาง "ลงเขา")</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Finance</span>
+                                        <span>Greeks: $\Delta, \Gamma, \Theta, \mathcal{V}$ = partial derivatives ของราคา option</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📦 Multiple Integrals & Line Integrals</h3>
+                            <span class="topic-badge">Extended</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>เหมือน integral ปกติ แต่สะสมในหลายมิติ — คำนวณปริมาตร, flow, หรือ probability ในหลายตัวแปร</p>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\iint f(x,y)\,dx\,dy$</span>
+                                        <span class="eq-explain">ปริมาตรใต้ surface — Probability ใน 2 ตัวแปร</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 6</h4>
+                            <p>เห็น $\nabla f$ แล้วรู้ทันทีว่า <strong>"ชี้ทางเปลี่ยนเร็วสุด"</strong> — เข้าใจ Gradient Descent, Greeks, และ force fields</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div style="display:flex; justify-content:space-between; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1);"><a href="phase-5.html" class="btn btn-secondary">← ก่อนหน้า (Phase 5)</a><a href="phase-7.html" class="btn btn-primary">ถัดไป (Phase 7) →</a></div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script>
+</body>
+</html>
