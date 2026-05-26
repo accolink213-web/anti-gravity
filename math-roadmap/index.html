@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เส้นทางเรียนรู้คณิตศาสตร์แบบสร้าง Intuition — จาก Algebra สู่ Quantum Math">
+    <title>Math OS — ระบบปฏิบัติการคณิตศาสตร์ในหัว</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">∫</span>
+                <span class="logo-text">Math OS</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+                <a href="#roadmap" class="nav-link" data-section="roadmap">Roadmap</a>
+                <a href="#phase-detail" class="nav-link" data-section="phase-detail">เนื้อหา</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-pulse"></span>
+                <span>ระบบปฏิบัติการคณิตศาสตร์</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">เห็นสมการ</span>
+                <span class="title-line gradient-text">แล้วรู้ว่ามันเล่าเรื่องอะไร</span>
+            </h1>
+            <p class="hero-subtitle">
+                เส้นทางสร้าง <strong>Intuition</strong> จาก Algebra สู่ Quantum Math<br>
+                ไม่ใช่แค่ทำโจทย์ แต่คือ "อ่านภาษาของจักรวาล"
+            </p>
+
+            <div class="hero-equation">
+                <div class="equation-card">
+                    <div class="equation-before">
+                        <span class="label">ก่อน:</span>
+                        <span class="eq">$dS_t = \sigma\, dW_t$</span>
+                        <span class="reaction">😱 ภาษาเอเลี่ยน!</span>
+                    </div>
+                    <div class="equation-arrow">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M8 20H32M32 20L24 12M32 20L24 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="equation-after">
+                        <span class="label">หลัง:</span>
+                        <span class="eq">$dS_t = \sigma\, dW_t$</span>
+                        <span class="reaction">💡 "ราคา = ความสุ่ม × ความผันผวน"</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#roadmap" class="btn btn-primary">
+                    <span>เริ่มเส้นทาง</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </a>
+                <a href="#phase-detail" class="btn btn-secondary">
+                    <span>ดูเนื้อหาทั้งหมด</span>
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">9</span>
+                    <span class="stat-label">Phases</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">12-24</span>
+                    <span class="stat-label">เดือน</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">∞</span>
+                    <span class="stat-label">Intuition</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Section -->
+    <section id="warning" class="warning-section">
+        <div class="container">
+            <div class="warning-card">
+                <div class="warning-icon">⚠️</div>
+                <h2>คำเตือนสำคัญ</h2>
+                <p class="warning-text">
+                    คนจำนวนมากเรียนคณิตแบบ <strong>"ทำโจทย์เยอะ"</strong> แต่ไม่เกิด Intuition<br>
+                    สำหรับเป้าหมาย <strong>Quant + Quantum + Systems</strong>
+                </p>
+                <div class="warning-rule">
+                    <span class="rule-icon">🧠</span>
+                    <p>ต้องฝึกถามทุกครั้งว่า: <strong>"สมการนี้กำลังเล่าเรื่องของอะไร?"</strong></p>
+                </div>
+                <div class="intuition-grid">
+                    <div class="intuition-item">
+                        <span class="intuition-symbol">$\frac{df}{dx}$</span>
+                        <span class="intuition-meaning">= ความเร็วการเปลี่ยน</span>
+                    </div>
+                    <div class="intuition-item">
+                        <span class="intuition-symbol">$\int f\,dx$</span>
+                        <span class="intuition-meaning">= การสะสม</span>
+                    </div>
+                    <div class="intuition-item">
+                        <span class="intuition-symbol">$A\vec{x}=\lambda\vec{x}$</span>
+                        <span class="intuition-meaning">= รูปแบบที่ระบบชอบ</span>
+                    </div>
+                    <div class="intuition-item">
+                        <span class="intuition-symbol">$P(A|B)$</span>
+                        <span class="intuition-meaning">= ความไม่แน่นอน</span>
+                    </div>
+                    <div class="intuition-item">
+                        <span class="intuition-symbol">$\sigma\,dW_t$</span>
+                        <span class="intuition-meaning">= noise / randomness</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Overview -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Learning Path</span>
+                <h2 class="section-title">แผนที่การเรียนรู้</h2>
+                <p class="section-desc">9 Phases สู่การ "อ่านภาษาคณิตศาสตร์" ได้อย่างเป็นธรรมชาติ</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item" data-phase="0">
+                    <div class="timeline-marker">
+                        <span class="marker-number">0</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(0)">
+                        <div class="card-header">
+                            <span class="phase-duration">2–4 สัปดาห์</span>
+                            <span class="phase-tag tag-foundation">Foundation</span>
+                        </div>
+                        <h3>ซ่อมฐานเลข</h3>
+                        <p>เศษส่วน, เลขยกกำลัง, log, exponentials, การจัดรูปสมการ</p>
+                        <div class="card-preview">$e^x,\; \ln(x),\; \log(x)$</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="1">
+                    <div class="timeline-marker">
+                        <span class="marker-number">1</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(1)">
+                        <div class="card-header">
+                            <span class="phase-duration">1–2 เดือน</span>
+                            <span class="phase-tag tag-core">Core</span>
+                        </div>
+                        <h3>ฟังก์ชัน + Graph Intuition</h3>
+                        <p>Function, Graph, Slope, Rate of change, Exponential growth</p>
+                        <div class="card-preview">$y = ax + b \quad\text{vs}\quad y = e^x$</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="2">
+                    <div class="timeline-marker">
+                        <span class="marker-number">2</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(2)">
+                        <div class="card-header">
+                            <span class="phase-duration">2–4 เดือน</span>
+                            <span class="phase-tag tag-critical">Critical</span>
+                        </div>
+                        <h3>Calculus (Core Layer)</h3>
+                        <p>Derivative & Integral — หัวใจของทุกศาสตร์</p>
+                        <div class="card-preview">$\frac{dx}{dt} \quad\text{&}\quad \int f(x)\,dx$</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="3">
+                    <div class="timeline-marker">
+                        <span class="marker-number">3</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(3)">
+                        <div class="card-header">
+                            <span class="phase-duration">1–3 เดือน</span>
+                            <span class="phase-tag tag-core">Core</span>
+                        </div>
+                        <h3>Linear Algebra</h3>
+                        <p>ภาษาของระบบหลายมิติ — Vectors, Matrix, Eigenvalues</p>
+                        <div class="card-preview">$A\vec{x} = \lambda\vec{x}$</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="4">
+                    <div class="timeline-marker">
+                        <span class="marker-number">4</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(4)">
+                        <div class="card-header">
+                            <span class="phase-duration">2–4 เดือน</span>
+                            <span class="phase-tag tag-critical">Critical</span>
+                        </div>
+                        <h3>Probability & Statistics</h3>
+                        <p>หัวใจของตลาด — Random variable, Expectation, Distributions</p>
+                        <div class="card-preview">$\mathbb{E}[X] \quad\text{&}\quad P(A \mid B)$</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="5">
+                    <div class="timeline-marker">
+                        <span class="marker-number">5</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(5)">
+                        <div class="card-header">
+                            <span class="phase-duration">1–2 เดือน</span>
+                            <span class="phase-tag tag-advanced">Advanced</span>
+                        </div>
+                        <h3>Differential Equations</h3>
+                        <p>จุดเริ่มอ่าน Physics/Quant ได้จริง</p>
+                        <div class="card-preview">$\frac{dx}{dt} = ax$</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="6">
+                    <div class="timeline-marker">
+                        <span class="marker-number">6</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(6)">
+                        <div class="card-header">
+                            <span class="phase-duration">1–2 เดือน</span>
+                            <span class="phase-tag tag-advanced">Advanced</span>
+                        </div>
+                        <h3>Multivariable Calculus</h3>
+                        <p>Optimization, Gradient, หลายตัวแปร</p>
+                        <div class="card-preview">$\nabla f(x,y)$</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="7">
+                    <div class="timeline-marker">
+                        <span class="marker-number">7</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(7)">
+                        <div class="card-header">
+                            <span class="phase-duration">2–3 เดือน</span>
+                            <span class="phase-tag tag-expert">Expert</span>
+                        </div>
+                        <h3>Stochastic Process</h3>
+                        <p>Brownian motion, Markov, Itô process</p>
+                        <div class="card-preview">$dS_t = \mu\,dt + \sigma\,dW_t$</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-phase="8">
+                    <div class="timeline-marker">
+                        <span class="marker-number">8</span>
+                    </div>
+                    <div class="timeline-card" onclick="scrollToPhase(8)">
+                        <div class="card-header">
+                            <span class="phase-duration">2–4 เดือน</span>
+                            <span class="phase-tag tag-expert">Expert</span>
+                        </div>
+                        <h3>Functional / Operator Thinking</h3>
+                        <p>Hilbert space, Operators, Eigenstates, Fourier</p>
+                        <div class="card-preview">$\hat{H}\psi = E\psi$</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase Detail Sections -->
+    <section id="phase-detail" class="phases-detail">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Deep Dive</span>
+                <h2 class="section-title">เนื้อหาแต่ละ Phase</h2>
+                <p class="section-desc">ตัวอย่าง, ประโยชน์, และการใช้งานจริงในทุกศาสตร์</p>
+            </div>
+
+            <!-- Phase Navigation Pills -->
+            <div class="phase-nav" id="phase-nav">
+                <button class="phase-pill active" data-target="phase-0">0</button>
+                <button class="phase-pill" data-target="phase-1">1</button>
+                <button class="phase-pill" data-target="phase-2">2</button>
+                <button class="phase-pill" data-target="phase-3">3</button>
+                <button class="phase-pill" data-target="phase-4">4</button>
+                <button class="phase-pill" data-target="phase-5">5</button>
+                <button class="phase-pill" data-target="phase-6">6</button>
+                <button class="phase-pill" data-target="phase-7">7</button>
+                <button class="phase-pill" data-target="phase-8">8</button>
+            </div>
+
+            <!-- ====== PHASE 0 ====== -->
+            <article class="phase-block" id="phase-0">
+                <div class="phase-header-bar foundation">
+                    <div class="phase-number">Phase 0</div>
+                    <div class="phase-info">
+                        <h2>ซ่อมฐานเลข — Algebra Refresher</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–4 สัปดาห์</span>
+                            <span class="meta-item">🎯 เป้าหมาย: มองแล้วไม่กลัว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ทุกอย่างในคณิตศาสตร์ชั้นสูงใช้ <strong>พีชคณิตพื้นฐาน</strong> เป็นเครื่องมือ ถ้าฐานตรงนี้ไม่แน่น จะติดทุก Phase ถัดไป เปรียบเหมือนการเขียนโค้ดโดยไม่รู้จัก syntax — ต่อให้เข้าใจ logic ก็เขียนไม่ออก</p>
+                    </div>
+
+                    <!-- Topic: Fractions -->
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📐 เศษส่วน (Fractions)</h3>
+                            <span class="topic-badge">พื้นฐาน</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>เศษส่วนคือ "การแบ่ง" — $\frac{a}{b}$ หมายถึงเอาของทั้งหมดมาแบ่งเป็น $b$ ส่วน แล้วหยิบมา $a$ ส่วน</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{2}{3} + \frac{1}{4} = \frac{8}{12} + \frac{3}{12} = \frac{11}{12}$</span>
+                                        <span class="eq-explain">หา ค.ร.น. แล้วบวกเศษ</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}$</span>
+                                        <span class="eq-explain">คูณเศษกับเศษ ส่วนกับส่วน</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Probability:</strong> $P(A) = \frac{\text{จำนวนผลที่ต้องการ}}{\text{จำนวนผลทั้งหมด}}$</li>
+                                    <li><strong>Finance:</strong> อัตราส่วนต่าง ๆ เช่น Sharpe Ratio $= \frac{R_p - R_f}{\sigma_p}$</li>
+                                    <li><strong>Calculus:</strong> สัดส่วนการเปลี่ยนแปลง $\frac{\Delta y}{\Delta x}$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic: Exponents -->
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>⚡ เลขยกกำลัง (Exponents)</h3>
+                            <span class="topic-badge">สำคัญมาก</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>$a^n$ = คูณ $a$ ซ้ำ $n$ รอบ — แต่ที่เจ๋งกว่าคือมันอธิบาย <strong>การเติบโตแบบทวีคูณ</strong></p>
+                            </div>
+                            <div class="example-block">
+                                <h4>กฎสำคัญ</h4>
+                                <div class="rules-grid">
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$a^m \cdot a^n = a^{m+n}$</span>
+                                        <span class="rule-name">กฎการคูณ</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{a^m}{a^n} = a^{m-n}$</span>
+                                        <span class="rule-name">กฎการหาร</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$(a^m)^n = a^{mn}$</span>
+                                        <span class="rule-name">กฎยกกำลังซ้อน</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$a^0 = 1$</span>
+                                        <span class="rule-name">กำลังศูนย์</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$a^{-n} = \frac{1}{a^n}$</span>
+                                        <span class="rule-name">กำลังลบ</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$a^{1/n} = \sqrt[n]{a}$</span>
+                                        <span class="rule-name">กำลังเศษส่วน</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Finance:</strong> ดอกเบี้ยทบต้น $A = P(1+r)^t$ — เงินเติบโตแบบ exponential</li>
+                                    <li><strong>ML:</strong> Learning rate decay $\alpha_t = \alpha_0 \cdot \beta^t$</li>
+                                    <li><strong>Physics:</strong> การสลายตัวกัมมันตรังสี $N(t) = N_0 e^{-\lambda t}$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic: Logarithm & Exponential -->
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🌟 Log & Exponential — ตัว Boss ของ Phase 0</h3>
+                            <span class="topic-badge badge-critical">โผล่ทุกศาสตร์</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Exponential</strong> $e^x$ = "การเติบโตที่อัตราเร็วเท่ากับขนาดปัจจุบัน"<br>
+                                <strong>Logarithm</strong> $\ln(x)$ = "ตัวกลับ (inverse) ของ exponential" — ถามว่า "ยกกำลังเท่าไหร่ถึงจะได้ค่านี้?"</p>
+                                <div class="key-identity">
+                                    <span>$\ln(e^x) = x$ &nbsp;&nbsp;และ&nbsp;&nbsp; $e^{\ln(x)} = x$</span>
+                                    <span class="identity-label">สองตัวนี้เป็นคู่ inverse กัน</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง Intuitive</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$e^{0.05 \times 10} = e^{0.5} \approx 1.65$</span>
+                                        <span class="eq-explain">ดอกเบี้ย 5% ต่อปี เงินจะเพิ่ม 65% ใน 10 ปี (ทบต้นต่อเนื่อง)</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\ln(2) \approx 0.693$</span>
+                                        <span class="eq-explain">"Rule of 70" — เงินเพิ่มเป็น 2 เท่าเมื่อ rate × time ≈ 0.693</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 โผล่ตรงไหนบ้าง?</h4>
+                                <div class="usage-grid">
+                                    <div class="usage-item">
+                                        <span class="usage-field">Quantum</span>
+                                        <span>$\psi(t) = e^{-iEt/\hbar}$ — wave function evolution</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Signal</span>
+                                        <span>$e^{i\omega t}$ — Fourier basis function</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Finance</span>
+                                        <span>$S_t = S_0 e^{(\mu - \frac{\sigma^2}{2})t + \sigma W_t}$ — GBM</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">ML</span>
+                                        <span>$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum e^{x_j}}$</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Statistics</span>
+                                        <span>$\text{Log-likelihood} = \sum \ln P(x_i | \theta)$</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic: Equation Manipulation -->
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🔧 การย้ายข้าง & จัดรูปสมการ</h3>
+                            <span class="topic-badge">ทักษะพื้นฐาน</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>สมการ = ตาชั่ง — ทำอะไรข้างซ้าย ต้องทำข้างขวาด้วย เป้าหมายคือ "isolate" ตัวแปรที่สนใจ</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$3x + 7 = 22 \implies 3x = 15 \implies x = 5$</span>
+                                        <span class="eq-explain">ลบ 7 ทั้งสองข้าง แล้วหารด้วย 3</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$e^{rt} = 2 \implies rt = \ln(2) \implies t = \frac{\ln(2)}{r}$</span>
+                                        <span class="eq-explain">ใช้ ln ถอด exponential — หาเวลาที่เงินเพิ่มเป็น 2 เท่า</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 0</h4>
+                            <p>เห็น $e^x$, $\ln(x)$, $a^n$, เศษส่วน, สมการ แล้ว <strong>มองแล้วไม่กลัว</strong> — จัดรูปได้ ย้ายข้างได้ อ่านออก</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== PHASE 1 ====== -->
+            <article class="phase-block" id="phase-1">
+                <div class="phase-header-bar core">
+                    <div class="phase-number">Phase 1</div>
+                    <div class="phase-info">
+                        <h2>ฟังก์ชัน + Graph Intuition</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 1–2 เดือน</span>
+                            <span class="meta-item">🎯 จุดที่คนข้ามแล้วพังหนัก</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ฟังก์ชันคือ <strong>"เครื่องจักรที่รับ input แล้วพ่น output"</strong> — ถ้าเข้าใจฟังก์ชันเป็นภาพ (กราฟ) ไม่ใช่แค่สูตร คุณจะ "เห็น" พฤติกรรมของระบบได้ Quantum และ Quant เต็มไปด้วย <strong>ฟังก์ชันที่กำลัง evolve</strong></p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📊 Function คืออะไร?</h3>
+                            <span class="topic-badge">Core Concept</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>$f(x)$ = กล่องดำที่รับค่า $x$ แล้วให้ค่า $f(x)$ กลับมา — <strong>ทุก input มี output เดียว</strong></p>
+                                <p>กราฟคือ "ภาพ" ของฟังก์ชัน — แกน $x$ คือ input, แกน $y$ คือ output</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ฟังก์ชันสำคัญที่ต้องรู้จัก</h4>
+                                <div class="function-gallery">
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = ax + b$</div>
+                                        <div class="func-name">Linear</div>
+                                        <div class="func-intuition">เส้นตรง — เปลี่ยนด้วยอัตราคงที่</div>
+                                        <div class="func-example">ค่าแท็กซี่: ค่าเริ่ม + (ราคา × ระยะทาง)</div>
+                                    </div>
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = x^2$</div>
+                                        <div class="func-name">Quadratic</div>
+                                        <div class="func-intuition">โค้ง U — ยิ่งไปยิ่งเร็ว</div>
+                                        <div class="func-example">พลังงานจลน์ $KE = \frac{1}{2}mv^2$</div>
+                                    </div>
+                                    <div class="func-card accent">
+                                        <div class="func-eq">$y = e^x$</div>
+                                        <div class="func-name">Exponential</div>
+                                        <div class="func-intuition">ระเบิด! — โตตามขนาดตัวเอง</div>
+                                        <div class="func-example">การแพร่กระจายไวรัส, ดอกเบี้ยทบต้น</div>
+                                    </div>
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = \ln(x)$</div>
+                                        <div class="func-name">Logarithmic</div>
+                                        <div class="func-intuition">โตเร็วตอนแรก แล้วช้าลงเรื่อย ๆ</div>
+                                        <div class="func-example">การรับรู้ของมนุษย์ (Weber-Fechner law)</div>
+                                    </div>
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = \sin(x)$</div>
+                                        <div class="func-name">Sinusoidal</div>
+                                        <div class="func-intuition">แกว่งไปมา — คลื่น!</div>
+                                        <div class="func-example">คลื่นเสียง, ไฟ AC, quantum wave</div>
+                                    </div>
+                                    <div class="func-card">
+                                        <div class="func-eq">$y = \frac{1}{x}$</div>
+                                        <div class="func-name">Hyperbolic</div>
+                                        <div class="func-intuition">ยิ่งเยอะ ยิ่งได้น้อย</div>
+                                        <div class="func-example">Diminishing returns, กฎอุปสงค์</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📈 Slope & Rate of Change</h3>
+                            <span class="topic-badge badge-critical">สำคัญมาก</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Slope</strong> (ความชัน) = "เปลี่ยนเร็วแค่ไหน?" — เป็นบันไดขั้นแรกสู่ Calculus</p>
+                                <div class="key-identity">
+                                    <span>$\text{slope} = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}$</span>
+                                    <span class="identity-label">อัตราการเปลี่ยนแปลงเฉลี่ย</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>Intuition</h4>
+                                <div class="intuition-compare">
+                                    <div class="compare-item">
+                                        <span class="compare-visual">↗ ชันมาก</span>
+                                        <span>= เปลี่ยนเร็ว (เช่น หุ้นพุ่ง)</span>
+                                    </div>
+                                    <div class="compare-item">
+                                        <span class="compare-visual">→ ราบ</span>
+                                        <span>= ไม่เปลี่ยน (sideway)</span>
+                                    </div>
+                                    <div class="compare-item">
+                                        <span class="compare-visual">↘ ชันลง</span>
+                                        <span>= ลดลง (ราคาตก)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Finance:</strong> Return = slope ของ equity curve</li>
+                                    <li><strong>Physics:</strong> ความเร็ว = slope ของตำแหน่ง-เวลา</li>
+                                    <li><strong>ML:</strong> Gradient = slope ในหลายมิติ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 1</h4>
+                            <p>เห็นสมการแล้ว <strong>"เห็นภาพในหัว"</strong> ว่ากราฟหน้าตาเป็นอย่างไร มันโตหรือลด, แกว่งหรือราบ — ไม่ใช่แค่แทนค่า</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== PHASE 2 ====== -->
+            <article class="phase-block" id="phase-2">
+                <div class="phase-header-bar critical">
+                    <div class="phase-number">Phase 2</div>
+                    <div class="phase-info">
+                        <h2>Calculus — Core Layer ⭐</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–4 เดือน</span>
+                            <span class="meta-item">🎯 สำคัญที่สุดในทุก Phase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>Calculus คือ <strong>"ภาษาของการเปลี่ยนแปลง"</strong> — ทุกอย่างในฟิสิกส์, การเงิน, ML, quantum ใช้ Calculus เป็นรากฐาน ถ้าเข้าใจ Calculus ดี เท่ากับปลดล็อค 80% ของสมการทั้งหมดที่จะเจอ</p>
+                    </div>
+
+                    <!-- Derivative -->
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>⚡ Derivative — "เปลี่ยนเร็วแค่ไหน?"</h3>
+                            <span class="topic-badge badge-critical">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Derivative คือ <strong>slope ณ จุดหนึ่ง</strong> — ไม่ใช่ slope เฉลี่ย แต่คือ "ตอนนี้ เร็วแค่ไหน?"</p>
+                                <div class="key-identity">
+                                    <span>$f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x} = \frac{df}{dx}$</span>
+                                    <span class="identity-label">ลิมิตของอัตราการเปลี่ยนแปลง เมื่อ $\Delta x$ เข้าใกล้ 0</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>กฎการหา Derivative</h4>
+                                <div class="rules-grid">
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}(x^n) = nx^{n-1}$</span>
+                                        <span class="rule-name">Power Rule</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}(e^x) = e^x$</span>
+                                        <span class="rule-name">$e^x$ คงที่!</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}\ln(x) = \frac{1}{x}$</span>
+                                        <span class="rule-name">Log Rule</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}\sin(x) = \cos(x)$</span>
+                                        <span class="rule-name">Trig Rule</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$(fg)' = f'g + fg'$</span>
+                                        <span class="rule-name">Product Rule</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-eq">$\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)$</span>
+                                        <span class="rule-name">Chain Rule</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่างจริง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$v(t) = \frac{dx}{dt}$</span>
+                                        <span class="eq-explain"><strong>Physics:</strong> ความเร็ว = อนุพันธ์ของตำแหน่ง — "ตำแหน่งเปลี่ยนเร็วแค่ไหน?"</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{dP}{dt}$</span>
+                                        <span class="eq-explain"><strong>Finance:</strong> ราคาเปลี่ยนเร็วแค่ไหน — momentum ของตลาด</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\nabla_\theta \mathcal{L}(\theta)$</span>
+                                        <span class="eq-explain"><strong>ML:</strong> Gradient descent — หา derivative ของ loss เพื่อปรับ model</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\Delta = \frac{\partial V}{\partial S}$</span>
+                                        <span class="eq-explain"><strong>Options:</strong> Delta = derivative ของราคา option ต่อราคาหุ้น</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integral -->
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>∫ Integral — "สะสมอะไรบางอย่าง"</h3>
+                            <span class="topic-badge badge-critical">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Integral คือ <strong>การบวกสะสม</strong> — เอาชิ้นเล็ก ๆ มาต่อกัน ใน Calculus มันคือ "พื้นที่ใต้กราฟ"</p>
+                                <div class="key-identity">
+                                    <span>$\int_a^b f(x)\,dx = \text{พื้นที่ใต้ } f(x) \text{ จาก } a \text{ ถึง } b$</span>
+                                    <span class="identity-label">Definite Integral = การสะสมจาก a ถึง b</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>ความสัมพันธ์ Derivative ↔ Integral</h4>
+                                <div class="dual-concept">
+                                    <div class="dual-item">
+                                        <span class="dual-symbol">$\frac{d}{dx}$</span>
+                                        <span class="dual-meaning">แยกชิ้นส่วน → ดูอัตราเปลี่ยน</span>
+                                    </div>
+                                    <div class="dual-arrow">⟷</div>
+                                    <div class="dual-item">
+                                        <span class="dual-symbol">$\int dx$</span>
+                                        <span class="dual-meaning">รวมชิ้นส่วน → ดูผลสะสม</span>
+                                    </div>
+                                </div>
+                                <div class="key-identity" style="margin-top: 1rem;">
+                                    <span>$\int_a^b f'(x)\,dx = f(b) - f(a)$</span>
+                                    <span class="identity-label">Fundamental Theorem of Calculus — สะพานเชื่อม derivative กับ integral</span>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$P(a \le X \le b) = \int_a^b f(x)\,dx$</span>
+                                        <span class="eq-explain"><strong>Probability:</strong> ความน่าจะเป็น = พื้นที่ใต้ PDF</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\mathbb{E}[X] = \int x \cdot f(x)\,dx$</span>
+                                        <span class="eq-explain"><strong>Statistics:</strong> ค่าคาดหวัง = ค่าเฉลี่ยถ่วงน้ำหนัก</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$W = \int F \cdot dx$</span>
+                                        <span class="eq-explain"><strong>Physics:</strong> งาน = สะสมแรงตลอดระยะทาง</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\int_0^T r(t)\,dt$</span>
+                                        <span class="eq-explain"><strong>Finance:</strong> Cumulative return ตลอดช่วงเวลา</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 2</h4>
+                            <p>เห็น Differential equation แล้ว <strong>ไม่ panic</strong> — รู้ว่า $\frac{dx}{dt}$ คือ "อัตราเปลี่ยน" และ $\int$ คือ "สะสม"</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== PHASE 3 ====== -->
+            <article class="phase-block" id="phase-3">
+                <div class="phase-header-bar core">
+                    <div class="phase-number">Phase 3</div>
+                    <div class="phase-info">
+                        <h2>Linear Algebra — ภาษาของระบบหลายมิติ</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 1–3 เดือน</span>
+                            <span class="meta-item">🎯 เรียนคู่กับ Calculus ได้</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ถ้า Calculus คือ "ภาษาของการเปลี่ยนแปลง" Linear Algebra คือ <strong>"ภาษาของระบบที่มีหลายตัวแปร"</strong> — ทุกครั้งที่มีข้อมูลมากกว่า 1 มิติ Linear Algebra จะเป็นเครื่องมือหลัก</p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>➡️ Vectors — ลูกศรในอวกาศ</h3>
+                            <span class="topic-badge">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Vector = <strong>"ทิศทาง + ขนาด"</strong> — ไม่ใช่แค่ตัวเลข แต่คือ "ชี้ไปทางไหน แรงแค่ไหน"</p>
+                                <div class="key-identity">
+                                    <span>$\vec{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$ — vector ใน $n$ มิติ</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>Operations สำคัญ</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta$</span>
+                                        <span class="eq-explain"><strong>Dot Product:</strong> วัด "ความคล้าย" ของทิศทาง — ใช้ใน ML (cosine similarity)</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\|\vec{v}\| = \sqrt{v_1^2 + v_2^2 + \cdots}$</span>
+                                        <span class="eq-explain"><strong>Norm:</strong> ขนาดของ vector — ระยะทาง</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📋 Matrix — การแปลงข้อมูล</h3>
+                            <span class="topic-badge">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Matrix = <strong>"เครื่องจักรแปลง vector"</strong> — ใส่ vector เข้าไป ได้ vector ใหม่ออกมา มันยืด หมุน สะท้อน หรือฉายข้อมูล</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 2x \\ 3y \end{pmatrix}$</span>
+                                        <span class="eq-explain">Matrix นี้ "ยืด" แกน x เป็น 2 เท่า แกน y เป็น 3 เท่า</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>ML:</strong> Neural network ทุก layer = matrix multiplication: $\vec{y} = W\vec{x} + \vec{b}$</li>
+                                    <li><strong>Quantum:</strong> Operator ทุกตัว = matrix ที่ทำหน้าที่กับ quantum state</li>
+                                    <li><strong>Finance:</strong> Correlation matrix ระหว่างสินทรัพย์</li>
+                                    <li><strong>Graphics:</strong> Rotation, scaling, projection ใน 3D</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🌟 Eigenvalues & Eigenvectors — "รูปแบบที่ระบบชอบ"</h3>
+                            <span class="topic-badge badge-critical">สำคัญที่สุด</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>เมื่อ matrix $A$ ทำกับ vector $\vec{x}$ แล้ว <strong>ทิศทางไม่เปลี่ยน</strong> แค่ scale — vector นั้นคือ <strong>Eigenvector</strong> และค่า scale คือ <strong>Eigenvalue</strong></p>
+                                <div class="key-identity">
+                                    <span>$A\vec{x} = \lambda\vec{x}$</span>
+                                    <span class="identity-label">$\vec{x}$ = eigenvector, $\lambda$ = eigenvalue — "ทิศทางที่ระบบรักษาไว้"</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>Intuition</h4>
+                                <p>ลองนึกภาพเขย่ากะทะทราย — ทรายจะจัดตัวเป็นรูปแบบเฉพาะ นั่นคือ "eigenvector" ของการสั่น — <strong>รูปแบบที่ระบบ "ชอบ"</strong></p>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <div class="usage-grid">
+                                    <div class="usage-item">
+                                        <span class="usage-field">Quantum</span>
+                                        <span>$\hat{H}|\psi\rangle = E|\psi\rangle$ — Eigenstate = สถานะที่วัดได้ ค่า $E$ = พลังงาน</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">ML / PCA</span>
+                                        <span>Eigenvectors ของ covariance matrix = ทิศทางที่ข้อมูลมีความแปรปรวนมากสุด</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Markov</span>
+                                        <span>Eigenvector ที่ $\lambda=1$ = stationary distribution = สมดุลระยะยาว</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Google</span>
+                                        <span>PageRank = eigenvector ของ web graph matrix</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 3</h4>
+                            <p>เห็น $A\vec{x} = \lambda\vec{x}$ แล้วอ่านออกว่า <strong>"ระบบนี้มีรูปแบบอะไรที่คงอยู่"</strong> — เข้าใจ quantum state, PCA, Markov ได้ทันที</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== PHASE 4 ====== -->
+            <article class="phase-block" id="phase-4">
+                <div class="phase-header-bar critical">
+                    <div class="phase-number">Phase 4</div>
+                    <div class="phase-info">
+                        <h2>Probability & Statistics — หัวใจของตลาด</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–4 เดือน</span>
+                            <span class="meta-item">🎯 คิดแบบ Probabilistic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>เป้าหมายคือเปลี่ยนจากการคิดแบบ <strong>"ขึ้นแน่/ลงแน่"</strong> เป็น <strong>"โอกาสสูงกว่า"</strong> — โลกจริงไม่มีอะไรแน่นอน ความน่าจะเป็นคือภาษาของความไม่แน่นอน</p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🎲 Random Variable & Distributions</h3>
+                            <span class="topic-badge">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Random Variable</strong> $X$ = ตัวแปรที่ค่าของมัน "สุ่ม" — ไม่รู้ค่าจริงจนกว่าจะเกิดเหตุการณ์<br>
+                                <strong>Distribution</strong> = "แผนที่" ของความเป็นไปได้ทั้งหมด</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>Distributions สำคัญ</h4>
+                                <div class="distribution-cards">
+                                    <div class="dist-card">
+                                        <div class="dist-name">Normal (Gaussian)</div>
+                                        <div class="dist-eq">$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$</div>
+                                        <div class="dist-intuition">ระฆังคว่ำ — ค่าส่วนใหญ่อยู่ใกล้ค่าเฉลี่ย</div>
+                                        <div class="dist-usage">Return หุ้น, measurement error, height of people</div>
+                                    </div>
+                                    <div class="dist-card">
+                                        <div class="dist-name">Poisson</div>
+                                        <div class="dist-eq">$P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}$</div>
+                                        <div class="dist-intuition">นับจำนวนเหตุการณ์ในช่วงเวลา</div>
+                                        <div class="dist-usage">จำนวน trade ต่อนาที, จำนวน photon ที่ detector</div>
+                                    </div>
+                                    <div class="dist-card">
+                                        <div class="dist-name">Exponential</div>
+                                        <div class="dist-eq">$f(x) = \lambda e^{-\lambda x}$</div>
+                                        <div class="dist-intuition">เวลาระหว่างเหตุการณ์</div>
+                                        <div class="dist-usage">เวลาระหว่าง orders, radioactive decay</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📊 Expectation & Variance</h3>
+                            <span class="topic-badge badge-critical">สำคัญมาก</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Expectation</strong> $\mathbb{E}[X]$ = "ค่าเฉลี่ยในระยะยาว" — ถ้าทำซ้ำ ∞ ครั้ง จะได้ค่านี้<br>
+                                <strong>Variance</strong> $\text{Var}(X)$ = "กระจายแค่ไหน?" — วัดความ "ไม่แน่นอน"</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่าง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\mathbb{E}[X] = \sum x_i \cdot P(x_i) = \int x \cdot f(x)\,dx$</span>
+                                        <span class="eq-explain">ค่าเฉลี่ยถ่วงน้ำหนักด้วยความน่าจะเป็น</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\text{Var}(X) = \mathbb{E}[(X - \mu)^2] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2$</span>
+                                        <span class="eq-explain">ค่าเบี่ยงเบนจากค่าเฉลี่ยยกกำลังสอง</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Finance:</strong> Expected return $\mathbb{E}[R]$ vs Risk $\sigma = \sqrt{\text{Var}(R)}$ — Sharpe Ratio ใช้ทั้งคู่</li>
+                                    <li><strong>Quantum:</strong> $\langle \hat{A} \rangle = \langle \psi | \hat{A} | \psi \rangle$ — ค่าคาดหวังของการวัด</li>
+                                    <li><strong>ML:</strong> Loss function = $\mathbb{E}[\mathcal{L}(\theta)]$ — minimize expected error</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🧠 Conditional Probability & Bayes</h3>
+                            <span class="topic-badge badge-critical">เปลี่ยนวิธีคิด</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Conditional:</strong> $P(A|B)$ = "โอกาสเกิด A ถ้ารู้แล้วว่า B เกิด" — ข้อมูลใหม่เปลี่ยนความน่าจะเป็น!</p>
+                                <div class="key-identity">
+                                    <span>$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$</span>
+                                    <span class="identity-label">Bayes' Theorem — "อัปเดตความเชื่อเมื่อมีข้อมูลใหม่"</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>ตัวอย่างจริง</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$P(\text{ฝนตก}|\text{เมฆครึ้ม}) \gg P(\text{ฝนตก})$</span>
+                                        <span class="eq-explain">เห็นเมฆครึ้ม → โอกาสฝนเพิ่มขึ้น — ข้อมูลเปลี่ยนความเชื่อ</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$P(\text{หุ้นขึ้น}|\text{Fed ลดดอกเบี้ย})$</span>
+                                        <span class="eq-explain">การคิดแบบ trader — ทุก event update ความน่าจะเป็น</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 4</h4>
+                            <p>เริ่มคิดแบบ <strong>probabilistic</strong> — แทนที่จะพูดว่า "ขึ้นแน่/ลงแน่" เป็น <strong>"โอกาสสูงกว่า, expected value เท่าไหร่, risk เท่าไหร่"</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== PHASE 5 ====== -->
+            <article class="phase-block" id="phase-5">
+                <div class="phase-header-bar advanced">
+                    <div class="phase-number">Phase 5</div>
+                    <div class="phase-info">
+                        <h2>Differential Equations — จุดเริ่มอ่าน Physics/Quant จริง</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 1–2 เดือน</span>
+                            <span class="meta-item">🎯 ระบบที่ evolve ตามกฎ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>Differential Equation (DE) คือ <strong>สมการที่อธิบายว่าระบบเปลี่ยนแปลงอย่างไร</strong> — ไม่ได้บอกคำตอบโดยตรง แต่บอก "กฎ" ของการเปลี่ยนแปลง แล้วเราหาคำตอบจากกฎนั้น</p>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🔄 ODE — สมการของการเปลี่ยนแปลง</h3>
+                            <span class="topic-badge badge-critical">Gateway</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>ตัวอย่างพื้นฐานที่สุด</h4>
+                                <div class="key-identity">
+                                    <span>$\frac{dx}{dt} = ax$</span>
+                                    <span class="identity-label">"ระบบโตตามค่าปัจจุบัน" → คำตอบคือ $x(t) = x_0 e^{at}$</span>
+                                </div>
+                                <p style="margin-top:1rem;">ถ้า $a > 0$: โตแบบ exponential (ประชากร, ดอกเบี้ย)<br>
+                                ถ้า $a < 0$: สลาย exponential (กัมมันตรังสี, ยาในเลือด)</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>DE ที่สำคัญในแต่ละศาสตร์</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{d^2x}{dt^2} = -\omega^2 x$</span>
+                                        <span class="eq-explain"><strong>Harmonic Oscillator:</strong> ระบบแกว่งไปมา → $x(t) = A\cos(\omega t + \phi)$</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{\partial u}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2}$</span>
+                                        <span class="eq-explain"><strong>Wave Equation:</strong> คลื่นแพร่กระจาย — เสียง, แสง, quantum wave</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$i\hbar\frac{\partial}{\partial t}\Psi = \hat{H}\Psi$</span>
+                                        <span class="eq-explain"><strong>Schrödinger Equation:</strong> กฎการ evolve ของ quantum state!</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\frac{dS}{S} = \mu\,dt + \sigma\,dW_t$</span>
+                                        <span class="eq-explain"><strong>GBM:</strong> ราคาหุ้นเปลี่ยนตามแนวโน้ม + noise</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 5</h4>
+                            <p>เห็น DE แล้วอ่านได้ว่า <strong>"ระบบนี้ evolve อย่างไร"</strong> — Wave equation, Schrödinger, Black-Scholes จะดู familiar ขึ้นมาก</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== PHASE 6 ====== -->
+            <article class="phase-block" id="phase-6">
+                <div class="phase-header-bar advanced">
+                    <div class="phase-number">Phase 6</div>
+                    <div class="phase-info">
+                        <h2>Multivariable Calculus — หลายตัวแปร</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 1–2 เดือน</span>
+                            <span class="meta-item">🎯 Optimization & Gradient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>โลกจริงมีหลายตัวแปร — ราคาหุ้นขึ้นกับ 100 ปัจจัย, neural network มีล้าน parameter Multivariable Calculus คือเครื่องมือจัดการ <strong>"การเปลี่ยนแปลงในหลายมิติ"</strong></p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📐 Partial Derivatives</h3>
+                            <span class="topic-badge">Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>Partial derivative</strong> $\frac{\partial f}{\partial x}$ = "เปลี่ยน $x$ อย่างเดียว ตัวอื่นตรึงไว้ ดูว่า $f$ เปลี่ยนแค่ไหน"</p>
+                                <div class="key-identity">
+                                    <span>$f(x,y) = x^2y + 3y \implies \frac{\partial f}{\partial x} = 2xy, \quad \frac{\partial f}{\partial y} = x^2 + 3$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🧭 Gradient — "ทิศทางที่ขึ้นเร็วสุด"</h3>
+                            <span class="topic-badge badge-critical">ตัว Boss</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Gradient = vector ของ partial derivatives ทุกตัว — ชี้ไปทาง <strong>"ฟังก์ชันเพิ่มเร็วที่สุด"</strong></p>
+                                <div class="key-identity">
+                                    <span>$\nabla f(x,y) = \begin{pmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{pmatrix}$</span>
+                                    <span class="identity-label">"ลูกศร" ชี้ทางขึ้นเขาเร็วสุด — ถ้าอยากลง ก็ไปทางตรงข้าม</span>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <div class="usage-grid">
+                                    <div class="usage-item">
+                                        <span class="usage-field">ML</span>
+                                        <span>Gradient Descent: $\theta_{t+1} = \theta_t - \alpha \nabla_\theta \mathcal{L}$ — ปรับ model ไปทาง error ลดเร็วสุด</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Optimization</span>
+                                        <span>หาจุดต่ำสุด/สูงสุดของฟังก์ชันหลายตัวแปร</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Physics</span>
+                                        <span>$\vec{F} = -\nabla V$ — แรง = gradient ของพลังงานศักย์ (ชี้ทาง "ลงเขา")</span>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span class="usage-field">Finance</span>
+                                        <span>Greeks: $\Delta, \Gamma, \Theta, \mathcal{V}$ = partial derivatives ของราคา option</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>📦 Multiple Integrals & Line Integrals</h3>
+                            <span class="topic-badge">Extended</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>เหมือน integral ปกติ แต่สะสมในหลายมิติ — คำนวณปริมาตร, flow, หรือ probability ในหลายตัวแปร</p>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\iint f(x,y)\,dx\,dy$</span>
+                                        <span class="eq-explain">ปริมาตรใต้ surface — Probability ใน 2 ตัวแปร</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 6</h4>
+                            <p>เห็น $\nabla f$ แล้วรู้ทันทีว่า <strong>"ชี้ทางเปลี่ยนเร็วสุด"</strong> — เข้าใจ Gradient Descent, Greeks, และ force fields</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== PHASE 7 ====== -->
+            <article class="phase-block" id="phase-7">
+                <div class="phase-header-bar expert">
+                    <div class="phase-number">Phase 7</div>
+                    <div class="phase-info">
+                        <h2>Stochastic Process — ระบบที่มีความสุ่ม</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–3 เดือน</span>
+                            <span class="meta-item">🎯 Quant / Finance Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ทุกอย่างจนถึงตรงนี้เป็น "deterministic" — ใส่ input รู้ output แน่นอน แต่โลกจริง (ตลาด, ฟิสิกส์ quantum) มี <strong>ความสุ่มเป็นส่วนหนึ่งของระบบ</strong> Stochastic process คือคณิตศาสตร์สำหรับเรื่องนั้น</p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🎯 Markov Chains</h3>
+                            <span class="topic-badge">Foundation</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p><strong>"อนาคตขึ้นกับปัจจุบันเท่านั้น ไม่ขึ้นกับอดีต"</strong> — Markov property</p>
+                                <div class="key-identity">
+                                    <span>$P(X_{n+1} = j \mid X_n = i, X_{n-1}, \ldots) = P(X_{n+1} = j \mid X_n = i)$</span>
+                                    <span class="identity-label">ไม่ว่าจะเดินทางมาอย่างไร สำคัญแค่ "ตอนนี้อยู่ที่ไหน"</span>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Finance:</strong> Credit rating transitions, regime switching models</li>
+                                    <li><strong>ML:</strong> Hidden Markov Models (speech recognition), MCMC</li>
+                                    <li><strong>Physics:</strong> Random walk, diffusion process</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🌊 Brownian Motion — ตัวแม่ของ Randomness</h3>
+                            <span class="topic-badge badge-critical">Critical</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Brownian motion $W_t$ คือ <strong>"เดินสุ่มแบบต่อเนื่อง"</strong> — ทุก step สุ่ม แต่รวมกันได้เป็น path ต่อเนื่อง</p>
+                                <div class="key-identity">
+                                    <span>คุณสมบัติ: $W_0 = 0$, &nbsp; $W_t - W_s \sim \mathcal{N}(0, t-s)$, &nbsp; increments เป็นอิสระ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>⚡ Itô Process & SDE</h3>
+                            <span class="topic-badge badge-critical">Quant Core</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>เมื่อรวม <strong>แนวโน้ม (drift)</strong> กับ <strong>ความสุ่ม (diffusion)</strong> ได้ Stochastic DE:</p>
+                                <div class="key-identity">
+                                    <span>$dS_t = \underbrace{\mu S_t\,dt}_{\text{drift (แนวโน้ม)}} + \underbrace{\sigma S_t\,dW_t}_{\text{diffusion (noise)}}$</span>
+                                    <span class="identity-label">Geometric Brownian Motion — โมเดลราคาหุ้นพื้นฐาน</span>
+                                </div>
+                            </div>
+                            <div class="example-block">
+                                <h4>Itô's Lemma — Chain Rule ของ Stochastic Calculus</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$df = \frac{\partial f}{\partial t}dt + \frac{\partial f}{\partial S}dS + \frac{1}{2}\frac{\partial^2 f}{\partial S^2}(dS)^2$</span>
+                                        <span class="eq-explain">คล้าย Chain Rule แต่มี "เทอมพิเศษ" $\frac{1}{2}\frac{\partial^2 f}{\partial S^2}\sigma^2 S^2 dt$ เพราะ $(dW_t)^2 = dt$</span>
+                                    </div>
+                                </div>
+                                <p>นี่คือเครื่องมือที่ Black-Scholes ใช้ derive สูตรราคา option!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🎯</div>
+                        <div class="goal-content">
+                            <h4>เป้าหมายสิ้นสุด Phase 7</h4>
+                            <p>เห็น $dS_t = \mu\,dt + \sigma\,dW_t$ แล้ว <strong>อ่านออก</strong> ว่า "ราคาเปลี่ยนตาม drift + noise" — Black-Scholes, risk-neutral pricing เริ่ม make sense</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== PHASE 8 ====== -->
+            <article class="phase-block" id="phase-8">
+                <div class="phase-header-bar expert">
+                    <div class="phase-number">Phase 8</div>
+                    <div class="phase-info">
+                        <h2>Functional / Operator Thinking — Quantum จริงจัง</h2>
+                        <div class="phase-meta">
+                            <span class="meta-item">⏱ 2–4 เดือน</span>
+                            <span class="meta-item">🎯 Quantum Mechanics & Beyond</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-body">
+                    <div class="phase-intro">
+                        <p>ถึงจุดนี้ เราไม่ได้แค่ "คำนวณ" แต่ <strong>คิดเป็นระบบ</strong> — Operator ทำหน้าที่กับ function (ไม่ใช่ตัวเลข), Hilbert space คือห้องที่ quantum state อาศัยอยู่, Fourier คือการ "แยกสเปกตรัม" ของสัญญาณ</p>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🏗️ Hilbert Space — ห้องของ Quantum</h3>
+                            <span class="topic-badge">Foundation</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Hilbert space = <strong>"vector space ที่สมบูรณ์"</strong> พร้อม inner product — quantum state ทุกตัวอยู่ในนี้</p>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\langle \psi | \phi \rangle = \int \psi^*(x)\phi(x)\,dx$</span>
+                                        <span class="eq-explain">Inner product — วัด "ความทับซ้อน" ระหว่าง 2 quantum states</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>⚙️ Operators — เครื่องจักรที่ทำกับ Functions</h3>
+                            <span class="topic-badge badge-critical">Core Quantum</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>ในคณิตปกติ: function รับ <strong>ตัวเลข</strong> → คายตัวเลข<br>
+                                ใน quantum: operator รับ <strong>function</strong> → คาย function<br>
+                                เหมือน matrix แต่ทำงานในมิติอนันต์</p>
+                            </div>
+                            <div class="example-block">
+                                <h4>Operators สำคัญ</h4>
+                                <div class="math-example">
+                                    <div class="example-item">
+                                        <span class="eq-display">$\hat{p} = -i\hbar\frac{\partial}{\partial x}$</span>
+                                        <span class="eq-explain"><strong>Momentum operator</strong> — "วัดโมเมนตัม" = derivative ของ wave function</span>
+                                    </div>
+                                    <div class="example-item">
+                                        <span class="eq-display">$\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)$</span>
+                                        <span class="eq-explain"><strong>Hamiltonian</strong> — "พลังงานรวม" = kinetic + potential</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card highlight-card">
+                        <div class="topic-header">
+                            <h3>🌟 Eigenstate Equation — สมการที่สำคัญที่สุดของ Quantum</h3>
+                            <span class="topic-badge badge-critical">จุดหมายปลายทาง</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <div class="key-identity" style="font-size:1.2em;">
+                                    <span>$\hat{H}\psi = E\psi$</span>
+                                    <span class="identity-label">Time-independent Schrödinger Equation<br>"operator พลังงาน ทำกับ state → ได้ state เดิมคูณค่าพลังงาน"</span>
+                                </div>
+                                <p style="margin-top:1rem;">นี่คือ <strong>eigenvalue equation เดียวกัน</strong>กับ $A\vec{x}=\lambda\vec{x}$ ใน Linear Algebra! แค่ตอนนี้ $A$ เป็น operator, $\vec{x}$ เป็น function, $\lambda$ เป็นค่าที่วัดได้</p>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ตัวอย่างจริง</h4>
+                                <ul>
+                                    <li><strong>Hydrogen atom:</strong> แก้ $\hat{H}\psi = E\psi$ → ได้ energy levels $E_n = -\frac{13.6}{n^2}$ eV</li>
+                                    <li><strong>Harmonic oscillator:</strong> แก้ $\hat{H}\psi = E\psi$ → ได้ $E_n = \hbar\omega(n + \frac{1}{2})$ (พลังงาน quantized!)</li>
+                                    <li><strong>Matrix mechanics:</strong> เขียน operator เป็น matrix → หา eigenvalues ด้วย Linear Algebra ปกติ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>🎵 Fourier Intuition — "แยกสเปกตรัม"</h3>
+                            <span class="topic-badge">Essential</span>
+                        </div>
+                        <div class="topic-content">
+                            <div class="concept-block">
+                                <h4>แนวคิดหลัก</h4>
+                                <p>Fourier Transform = <strong>"แยกสัญญาณออกเป็นคลื่นพื้นฐาน"</strong> — เหมือนเอาเสียงดนตรีมาแยกเป็นโน้ตแต่ละตัว</p>
+                                <div class="key-identity">
+                                    <span>$\hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-i\omega t}\,dt$</span>
+                                    <span class="identity-label">"ถอดรหัส" สัญญาณ: เวลา → ความถี่</span>
+                                </div>
+                            </div>
+                            <div class="usage-block">
+                                <h4>🔗 ใช้ตรงไหนจริง?</h4>
+                                <ul>
+                                    <li><strong>Quantum:</strong> Position ↔ Momentum เป็น Fourier pair ($\psi(x) \leftrightarrow \tilde{\psi}(p)$)</li>
+                                    <li><strong>Signal Processing:</strong> แยกสัญญาณเสียง, กรอง noise</li>
+                                    <li><strong>Finance:</strong> Characteristic function, spectral analysis ของ returns</li>
+                                    <li><strong>ML:</strong> Fourier features, convolutional layers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-goal">
+                        <div class="goal-icon">🏆</div>
+                        <div class="goal-content">
+                            <h4>🎉 จุดหมายปลายทาง!</h4>
+                            <p>เห็น $\hat{H}\psi = E\psi$ แล้วอ่านออกว่า <strong>"Eigenvalue problem ของ energy operator"</strong><br>
+                            เห็น $dS_t = \mu\,dt + \sigma\,dW_t$ แล้วอ่านออกว่า <strong>"ราคาเปลี่ยนตาม drift + noise"</strong><br><br>
+                            สมการไม่ใช่ภาษาเอเลี่ยนอีกต่อไป — มันคือ <strong>"ภาษาที่เล่าเรื่องของจักรวาล"</strong> 🌌</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">∫</span>
+                    <span>Math OS</span>
+                </div>
+                <p class="footer-quote">"ถ้าคุณสร้าง intuition ได้ สมการจะเริ่มกลายเป็น 'ภาษา' แทนที่จะเป็นสัญลักษณ์แปลก ๆ"</p>
+                <div class="footer-domains">
+                    <span>Quantum</span>
+                    <span>•</span>
+                    <span>Quant Finance</span>
+                    <span>•</span>
+                    <span>Machine Learning</span>
+                    <span>•</span>
+                    <span>Engineering</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

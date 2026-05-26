@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calculus - เรียนรู้แคลคูลัสแบบ Interactive</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="เรียนรู้แคลคูลัสแบบ Interactive ครอบคลุมตั้งแต่นิยามลิมิต อนุพันธ์ ปริพันธ์ ไปจนถึงสมการเชิงอนุพันธ์ พร้อมภาพประกอบ กราฟโต้ตอบได้ และแบบฝึกหัด">
+    <meta name="keywords" content="Calculus, แคลคูลัส, คณิตศาสตร์, Interactive, ลิมิต, อนุพันธ์, ปริพันธ์, Differential Equations">
+    
+    <!-- KaTeX CSS for Math Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            <div class="mobile-title">Interactive Calculus</div>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="logo-icon">∫</div>
+                    <div>
+                        <div class="logo-text">Calculus</div>
+                        <div class="logo-sub">Interactive Learning</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-search">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" class="search-input" placeholder="ค้นหาบทเรียน...">
+                </div>
+            </div>
+
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <!-- Navigation will be populated by app.js -->
+            </nav>
+
+            <div class="sidebar-progress">
+                <div class="progress-label">
+                    <span>Overall Progress</span>
+                    <span id="overall-progress-text">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="overall-progress-fill"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div id="content-area" class="content-area">
+                <!-- Content will be dynamically loaded here by app.js -->
+                <div class="loading-spinner"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- KaTeX JS Scripts (loaded synchronously before app scripts) -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="engine/mathEngine.js"></script>
+    <script src="engine/grapher.js"></script>
+    <script src="engine/stepSolver.js"></script>
+    <script src="engine/quiz.js"></script>
+    
+    <!-- Module Scripts (Data & Content) -->
+    <script src="data/problems.js"></script>
+    <script src="modules/limits.js"></script>
+    <script src="modules/derivatives.js"></script>
+    <script src="modules/applications.js"></script>
+    <script src="modules/integrals.js"></script>
+    <script src="modules/series.js"></script>
+    <script src="modules/diffeq.js"></script>
+
+    <!-- Main App Logic -->
+    <script src="app.js"></script>
+</body>
+</html>

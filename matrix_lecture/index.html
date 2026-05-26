@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrix Academy — เรียนรู้เมทริกซ์แบบ Interactive</title>
+  <meta name="description" content="เว็บแอปสำหรับเรียนรู้เมทริกซ์แบบ Interactive พร้อมเครื่องคำนวณ วิธีทำทีละขั้นตอน และสถานการณ์จริง">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Particle Background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <div class="logo-icon">[M]</div>
+        Matrix Academy
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#lessons">บทเรียน</a></li>
+        <li><a href="#calculator">เครื่องคำนวณ</a></li>
+        <li><a href="#scenarios">สถานการณ์จริง</a></li>
+      </ul>
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="เปิดเมนู">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-floating" aria-hidden="true">
+      <div class="floating-matrix" style="top:12%;left:8%;--dur:10s;--delay:0s;--rot-start:-5deg;">
+        [1  0]
+        [0  1]
+      </div>
+      <div class="floating-matrix" style="top:20%;right:10%;--dur:12s;--delay:1s;--rot-start:3deg;">
+        [3 -1  2]
+        [0  4  5]
+      </div>
+      <div class="floating-matrix" style="bottom:25%;left:5%;--dur:9s;--delay:2s;--rot-start:8deg;">
+        [cosθ  -sinθ]
+        [sinθ   cosθ]
+      </div>
+      <div class="floating-matrix" style="bottom:18%;right:6%;--dur:11s;--delay:0.5s;--rot-start:-4deg;">
+        [a  b]
+        [c  d]
+      </div>
+      <div class="floating-matrix" style="top:45%;left:15%;--dur:14s;--delay:3s;--rot-start:2deg;">
+        det(A) = ad−bc
+      </div>
+      <div class="floating-matrix" style="top:50%;right:12%;--dur:13s;--delay:1.5s;--rot-start:-6deg;">
+        A × B ≠ B × A
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        เรียนรู้คณิตศาสตร์แบบ Interactive
+      </div>
+      <h1>
+        เรียนรู้<br>
+        <span class="gradient-text">เมทริกซ์</span>
+      </h1>
+      <p class="hero-subtitle">
+        เข้าใจเมทริกซ์อย่างลึกซึ้ง ตั้งแต่พื้นฐานจนถึงการประยุกต์ใช้จริง<br>
+        พร้อมเครื่องคำนวณและวิธีทำทีละขั้นตอน
+      </p>
+      <div class="hero-actions">
+        <a href="#calculator" class="btn btn-primary">🧮 เริ่มคำนวณ</a>
+        <a href="#lessons" class="btn btn-secondary">📚 เรียนรู้พื้นฐาน</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <span>เลื่อนลง</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <!-- Lessons Section -->
+  <section class="section" id="lessons">
+    <div class="section-header fade-in">
+      <span class="section-tag">📚 บทเรียน</span>
+      <div class="section-divider"></div>
+      <h2 class="section-title">พื้นฐานเมทริกซ์</h2>
+      <p class="section-desc">ทำความรู้จักกับเมทริกซ์ ตั้งแต่ความหมายไปจนถึงการดำเนินการต่างๆ</p>
+    </div>
+
+    <div class="lessons-grid">
+      <!-- Lesson 1: What is Matrix -->
+      <div class="card lesson-card fade-in">
+        <div class="lesson-icon purple">📐</div>
+        <h3>เมทริกซ์คืออะไร?</h3>
+        <p>
+          เมทริกซ์ (Matrix) คือการจัดเรียงตัวเลขเป็นแถวและหลักในรูปสี่เหลี่ยม
+          ใช้แทนข้อมูลที่มีหลายมิติ เช่น ระบบสมการเชิงเส้น หรือการแปลงทางเรขาคณิต
+        </p>
+        <div class="matrix-example">
+          <div class="matrix-visual">
+            <span class="matrix-bracket">[</span>
+            <div class="matrix-grid cols-3">
+              <span>1</span><span>2</span><span>3</span>
+              <span>4</span><span>5</span><span>6</span>
+            </div>
+            <span class="matrix-bracket">]</span>
+          </div>
+          <div style="margin-top:8px;font-size:0.75rem;color:var(--text-muted);">เมทริกซ์ขนาด 2×3 (2 แถว, 3 หลัก)</div>
+        </div>
+      </div>
+
+      <!-- Lesson 2: Types -->
+      <div class="card lesson-card fade-in">
+        <div class="lesson-icon blue">🔢</div>
+        <h3>ประเภทของเมทริกซ์</h3>
+        <p>
+          <strong>เมทริกซ์จัตุรัส</strong> — จำนวนแถว = จำนวนหลัก<br>
+          <strong>เมทริกซ์เอกลักษณ์ (I)</strong> — แนวทแยงเป็น 1 ที่เหลือเป็น 0<br>
+          <strong>เมทริกซ์ศูนย์</strong> — สมาชิกทุกตัวเป็น 0<br>
+          <strong>เมทริกซ์สมมาตร</strong> — A = Aᵀ
+        </p>
+        <div class="matrix-example">
+          <div class="matrix-visual">
+            <span class="matrix-bracket">[</span>
+            <div class="matrix-grid cols-3">
+              <span style="color:var(--accent-green)">1</span><span>0</span><span>0</span>
+              <span>0</span><span style="color:var(--accent-green)">1</span><span>0</span>
+              <span>0</span><span>0</span><span style="color:var(--accent-green)">1</span>
+            </div>
+            <span class="matrix-bracket">]</span>
+          </div>
+          <div style="margin-top:8px;font-size:0.75rem;color:var(--text-muted);">เมทริกซ์เอกลักษณ์ I₃</div>
+        </div>
+      </div>
+
+      <!-- Lesson 3: Operations Overview -->
+      <div class="card lesson-card fade-in">
+        <div class="lesson-icon cyan">⚡</div>
+        <h3>การดำเนินการ</h3>
+        <p>
+          เมทริกซ์มีการดำเนินการหลายแบบ แต่ละแบบมีกฎเกณฑ์เฉพาะ
+          ลองใช้เครื่องคำนวณด้านล่างเพื่อฝึกทำแต่ละแบบ
+        </p>
+        <div class="ops-grid">
+          <div class="op-card" onclick="scrollToCalcWithOp('add')">
+            <div class="op-symbol">+</div>
+            <div class="op-name">บวก</div>
+          </div>
+          <div class="op-card" onclick="scrollToCalcWithOp('subtract')">
+            <div class="op-symbol">−</div>
+            <div class="op-name">ลบ</div>
+          </div>
+          <div class="op-card" onclick="scrollToCalcWithOp('multiply')">
+            <div class="op-symbol">×</div>
+            <div class="op-name">คูณ</div>
+          </div>
+          <div class="op-card" onclick="scrollToCalcWithOp('scalar')">
+            <div class="op-symbol">k·A</div>
+            <div class="op-name">สเกลาร์</div>
+          </div>
+          <div class="op-card" onclick="scrollToCalcWithOp('transpose')">
+            <div class="op-symbol">Aᵀ</div>
+            <div class="op-name">ทรานสโพส</div>
+          </div>
+          <div class="op-card" onclick="scrollToCalcWithOp('determinant')">
+            <div class="op-symbol">det</div>
+            <div class="op-name">ดีเทอร์มิแนนต์</div>
+          </div>
+          <div class="op-card" onclick="scrollToCalcWithOp('inverse')">
+            <div class="op-symbol">A⁻¹</div>
+            <div class="op-name">อินเวอร์ส</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 4: Addition/Subtraction -->
+      <div class="card lesson-card fade-in">
+        <div class="lesson-icon green">➕</div>
+        <h3>การบวกและลบเมทริกซ์</h3>
+        <p>
+          เมทริกซ์สองตัวที่มี<strong>ขนาดเท่ากัน</strong>สามารถบวกหรือลบกันได้
+          โดยบวก/ลบสมาชิกในตำแหน่งเดียวกัน
+        </p>
+        <div class="matrix-example">
+          <div style="display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;">
+            <div class="matrix-visual">
+              <span class="matrix-bracket">[</span>
+              <div class="matrix-grid cols-2">
+                <span>1</span><span>2</span>
+                <span>3</span><span>4</span>
+              </div>
+              <span class="matrix-bracket">]</span>
+            </div>
+            <span style="color:var(--accent-cyan);font-size:1.2rem;font-weight:300;">+</span>
+            <div class="matrix-visual">
+              <span class="matrix-bracket">[</span>
+              <div class="matrix-grid cols-2">
+                <span>5</span><span>6</span>
+                <span>7</span><span>8</span>
+              </div>
+              <span class="matrix-bracket">]</span>
+            </div>
+            <span style="color:var(--accent-cyan);font-size:1.2rem;font-weight:300;">=</span>
+            <div class="matrix-visual">
+              <span class="matrix-bracket" style="color:var(--accent-green)">[</span>
+              <div class="matrix-grid cols-2" style="color:var(--accent-green)">
+                <span>6</span><span>8</span>
+                <span>10</span><span>12</span>
+              </div>
+              <span class="matrix-bracket" style="color:var(--accent-green)">]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 5: Multiplication -->
+      <div class="card lesson-card fade-in">
+        <div class="lesson-icon pink">✖️</div>
+        <h3>การคูณเมทริกซ์</h3>
+        <p>
+          A(m×n) คูณ B(n×p) ได้ผลลัพธ์ขนาด m×p<br>
+          <strong>จำนวนหลักของ A ต้องเท่ากับจำนวนแถวของ B</strong><br>
+          สมาชิก C[i][j] = ผลรวมของ A แถว i × B หลัก j
+        </p>
+        <div class="matrix-example">
+          <div style="font-size:0.8rem;color:var(--text-muted);line-height:1.8;">
+            C[i][j] = Σ A[i][k] × B[k][j]<br>
+            <span style="color:var(--accent-orange);">⚠️ A×B ≠ B×A (ไม่สลับที่ได้)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 6: Determinant & Inverse -->
+      <div class="card lesson-card fade-in">
+        <div class="lesson-icon orange">🔑</div>
+        <h3>ดีเทอร์มิแนนต์ & อินเวอร์ส</h3>
+        <p>
+          <strong>ดีเทอร์มิแนนต์</strong> — ค่าสเกลาร์จากเมทริกซ์จัตุรัส บอกว่าเมทริกซ์ทำให้พื้นที่ขยาย/หดแค่ไหน<br>
+          <strong>อินเวอร์ส (A⁻¹)</strong> — เมทริกซ์ที่ A × A⁻¹ = I<br>
+          มีได้เมื่อ det(A) ≠ 0 เท่านั้น
+        </p>
+        <div class="matrix-example">
+          <div style="font-size:0.85rem;">
+            det<span class="matrix-visual" style="display:inline-flex;vertical-align:middle;">
+              <span class="matrix-bracket">[</span>
+              <div class="matrix-grid cols-2"><span>a</span><span>b</span><span>c</span><span>d</span></div>
+              <span class="matrix-bracket">]</span>
+            </span> = ad − bc
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="section" id="calculator">
+    <div class="section-header fade-in">
+      <span class="section-tag">🧮 เครื่องคำนวณ</span>
+      <div class="section-divider"></div>
+      <h2 class="section-title">คำนวณเมทริกซ์</h2>
+      <p class="section-desc">เลือกการดำเนินการ กรอกตัวเลข แล้วดูผลลัพธ์พร้อมวิธีทำทีละขั้นตอน</p>
+    </div>
+
+    <div class="calc-container fade-in">
+      <!-- Controls -->
+      <div class="calc-controls">
+        <div class="calc-control-group">
+          <label for="calcOperation">การดำเนินการ</label>
+          <select id="calcOperation">
+            <option value="add">A + B (บวก)</option>
+            <option value="subtract">A − B (ลบ)</option>
+            <option value="multiply">A × B (คูณ)</option>
+            <option value="scalar">k · A (สเกลาร์)</option>
+            <option value="transpose">Aᵀ (ทรานสโพส)</option>
+            <option value="determinant">det(A) (ดีเทอร์มิแนนต์)</option>
+            <option value="inverse">A⁻¹ (อินเวอร์ส)</option>
+          </select>
+        </div>
+
+        <div class="calc-control-group" id="scalarGroup" style="display:none;">
+          <label for="scalarValue">ค่า k (สเกลาร์)</label>
+          <input type="number" id="scalarValue" value="2" step="any">
+        </div>
+
+        <div class="calc-control-group">
+          <label for="rowsA">แถว A</label>
+          <select id="rowsA">
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="calc-control-group">
+          <label for="colsA">หลัก A</label>
+          <select id="colsA">
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+
+        <div class="calc-control-group" id="sizeB-rows-group">
+          <label for="rowsB">แถว B</label>
+          <select id="rowsB">
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="calc-control-group" id="sizeB-cols-group">
+          <label for="colsB">หลัก B</label>
+          <select id="colsB">
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Matrix Inputs -->
+      <div class="calc-matrices">
+        <div class="calc-matrix-block" id="matrixABlock">
+          <h4><span class="label-badge a">A</span> เมทริกซ์ A</h4>
+          <div class="matrix-input-grid" id="matrixAGrid" style="grid-template-columns: repeat(2, 1fr);"></div>
+        </div>
+
+        <div class="calc-operator" id="calcOperatorSymbol">+</div>
+
+        <div class="calc-matrix-block" id="matrixBBlock">
+          <h4><span class="label-badge b">B</span> เมทริกซ์ B</h4>
+          <div class="matrix-input-grid" id="matrixBGrid" style="grid-template-columns: repeat(2, 1fr);"></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="calc-actions">
+        <button class="btn-random" id="btnRandom" onclick="fillRandom()">🎲 สุ่มตัวเลข</button>
+        <button class="btn-calculate" id="btnCalculate" onclick="calculate()">คำนวณ ✨</button>
+      </div>
+
+      <!-- Result -->
+      <div class="calc-result" id="calcResult">
+        <div class="result-label" id="resultLabel"></div>
+        <div id="resultDisplay"></div>
+
+        <!-- Steps -->
+        <div class="steps-container">
+          <button class="steps-toggle" id="stepsToggle" onclick="toggleSteps()">
+            📝 ดูวิธีทำทีละขั้นตอน
+          </button>
+          <div class="steps-list" id="stepsList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios Section -->
+  <section class="section" id="scenarios">
+    <div class="section-header fade-in">
+      <span class="section-tag">🌍 สถานการณ์จริง</span>
+      <div class="section-divider"></div>
+      <h2 class="section-title">เมทริกซ์ในชีวิตจริง</h2>
+      <p class="section-desc">ดูว่าเมทริกซ์ถูกนำไปใช้ในสาขาต่างๆ อย่างไร พร้อมลองเล่น Interactive Demo</p>
+    </div>
+
+    <div class="scenarios-tabs fade-in" id="scenarioTabs">
+      <button class="scenario-tab active" data-tab="transform">🖼️ การแปลงภาพ</button>
+      <button class="scenario-tab" data-tab="economics">📊 เศรษฐศาสตร์</button>
+      <button class="scenario-tab" data-tab="graphics">🎮 กราฟิก 3D</button>
+      <button class="scenario-tab" data-tab="crypto">🔐 การเข้ารหัส</button>
+      <button class="scenario-tab" data-tab="pagerank">🌐 PageRank</button>
+    </div>
+
+    <!-- Scenario: Image Transform -->
+    <div class="scenario-content active fade-in" id="scenario-transform">
+      <div class="scenario-card">
+        <div class="scenario-info">
+          <h3><span class="emoji">🖼️</span> การแปลงภาพ 2D</h3>
+          <p>
+            เมทริกซ์ใช้ในการแปลงพิกัดของจุดต่างๆ ในระนาบ 2 มิติ เช่น
+            การหมุน (Rotation), การขยาย/ย่อ (Scaling), การเฉือน (Shearing)
+          </p>
+          <p>
+            ทุกครั้งที่คุณหมุนรูปใน Photoshop, ซูมแผนที่ Google Maps หรือเล่นเกม 2D
+            — เมทริกซ์ทำงานอยู่เบื้องหลัง!
+          </p>
+          <div class="scenario-formula">
+            การหมุนมุม θ:<br>
+            [x'] = [cos θ  −sin θ] [x]<br>
+            [y'] = [sin θ   cos θ] [y]
+          </div>
+        </div>
+        <div class="scenario-demo">
+          <canvas id="transformCanvas" width="280" height="280"></canvas>
+          <div class="demo-controls">
+            <button class="demo-btn active" onclick="setTransform('rotate')" id="btn-rotate">หมุน</button>
+            <button class="demo-btn" onclick="setTransform('scale')" id="btn-scale">ขยาย</button>
+            <button class="demo-btn" onclick="setTransform('shear')" id="btn-shear">เฉือน</button>
+          </div>
+          <div class="demo-slider-group">
+            <label id="transformLabel">มุมหมุน: <span id="transformValue">0</span>°</label>
+            <input type="range" id="transformSlider" min="0" max="360" value="0" oninput="updateTransformDemo()">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario: Economics -->
+    <div class="scenario-content fade-in" id="scenario-economics">
+      <div class="scenario-card">
+        <div class="scenario-info">
+          <h3><span class="emoji">📊</span> Leontief Input-Output Model</h3>
+          <p>
+            นักเศรษฐศาสตร์ Wassily Leontief (รางวัลโนเบล 1973) ใช้เมทริกซ์วิเคราะห์ว่า
+            อุตสาหกรรมต่างๆ ในระบบเศรษฐกิจ ต้องผลิตเท่าไหร่เพื่อตอบสนองความต้องการ
+          </p>
+          <p>
+            ถ้า A คือเมทริกซ์ Input-Output และ d คือเวกเตอร์ความต้องการ<br>
+            ผลผลิตที่ต้องผลิต = <strong>(I − A)⁻¹ d</strong>
+          </p>
+          <div class="scenario-formula">
+            สมมติ 2 อุตสาหกรรม:<br>
+            A = [0.2  0.3]  d = [100]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;[0.4  0.1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[200]<br><br>
+            x = (I − A)⁻¹ d = ผลผลิตที่ต้องผลิต
+          </div>
+        </div>
+        <div class="scenario-demo">
+          <div style="text-align:center;width:100%;">
+            <h4 style="color:var(--accent-cyan);margin-bottom:1rem;font-size:0.95rem;">🏭 จำลองระบบเศรษฐกิจ 2 อุตสาหกรรม</h4>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;">
+              <div class="calc-control-group">
+                <label>ความต้องการ อุตฯ 1</label>
+                <input type="number" id="econD1" value="100" style="width:100px;background:rgba(0,0,0,0.4);border:1px solid var(--glass-border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font-mono);padding:8px;text-align:center;">
+              </div>
+              <div class="calc-control-group">
+                <label>ความต้องการ อุตฯ 2</label>
+                <input type="number" id="econD2" value="200" style="width:100px;background:rgba(0,0,0,0.4);border:1px solid var(--glass-border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font-mono);padding:8px;text-align:center;">
+              </div>
+            </div>
+            <button class="demo-btn" onclick="calculateEconomics()" style="margin-bottom:1rem;">คำนวณผลผลิต</button>
+            <div class="demo-output" id="econOutput" style="text-align:left;font-size:0.82rem;line-height:2;min-height:80px;">
+              กดปุ่มคำนวณเพื่อดูผลลัพธ์
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario: 3D Graphics -->
+    <div class="scenario-content fade-in" id="scenario-graphics">
+      <div class="scenario-card">
+        <div class="scenario-info">
+          <h3><span class="emoji">🎮</span> กราฟิก 3 มิติ</h3>
+          <p>
+            ทุกเกม 3D และแอนิเมชัน ใช้ <strong>Rotation Matrix</strong> ในการหมุนวัตถุ
+            รอบแกน X, Y, Z เพื่อสร้างมุมมอง 3 มิติ
+          </p>
+          <p>
+            GPU (การ์ดจอ) ของคุณคำนวณเมทริกซ์หลายล้านชุดต่อวินาทีเพื่อวาดภาพ 3D!
+          </p>
+          <div class="scenario-formula">
+            หมุนรอบแกน Z:<br>
+            Rz = [cos θ  −sin θ  0]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sin θ   cos θ  0]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[  0       0     1]
+          </div>
+        </div>
+        <div class="scenario-demo">
+          <canvas id="graphics3dCanvas" width="280" height="280"></canvas>
+          <div class="demo-slider-group">
+            <label>หมุนรอบแกน Y: <span id="rotYValue">0</span>°</label>
+            <input type="range" id="rotYSlider" min="0" max="360" value="0" oninput="update3DDemo()">
+          </div>
+          <div class="demo-slider-group">
+            <label>หมุนรอบแกน X: <span id="rotXValue">30</span>°</label>
+            <input type="range" id="rotXSlider" min="0" max="360" value="30" oninput="update3DDemo()">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario: Cryptography -->
+    <div class="scenario-content fade-in" id="scenario-crypto">
+      <div class="scenario-card">
+        <div class="scenario-info">
+          <h3><span class="emoji">🔐</span> Hill Cipher</h3>
+          <p>
+            Hill Cipher เป็นวิธีเข้ารหัสข้อความโดยใช้เมทริกซ์คูณกับตัวอักษร
+            คิดค้นโดย Lester Hill ในปี 1929
+          </p>
+          <p>
+            ตัวอักษร A-Z จะถูกแทนด้วยตัวเลข 0-25<br>
+            จากนั้นคูณด้วย Key Matrix แล้ว mod 26
+          </p>
+          <div class="scenario-formula">
+            Key Matrix K = [3  3]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2  5]<br><br>
+            เข้ารหัส: C = K × P (mod 26)<br>
+            ถอดรหัส: P = K⁻¹ × C (mod 26)
+          </div>
+        </div>
+        <div class="scenario-demo">
+          <div style="text-align:center;width:100%;">
+            <h4 style="color:var(--accent-cyan);margin-bottom:1rem;font-size:0.95rem;">🔒 ลองเข้ารหัส Hill Cipher</h4>
+            <div class="demo-text-input">
+              <label style="font-size:0.8rem;color:var(--text-secondary);">พิมพ์ข้อความ (A-Z เท่านั้น)</label>
+              <input type="text" id="cipherInput" placeholder="HELLO" maxlength="20" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'')">
+            </div>
+            <div style="display:flex;gap:0.5rem;justify-content:center;margin-top:1rem;">
+              <button class="demo-btn" onclick="hillEncrypt()">🔒 เข้ารหัส</button>
+              <button class="demo-btn" onclick="hillDecrypt()">🔓 ถอดรหัส</button>
+            </div>
+            <div class="demo-output" id="cipherOutput" style="margin-top:1rem;">
+              พิมพ์ข้อความแล้วกดเข้ารหัส
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario: PageRank -->
+    <div class="scenario-content fade-in" id="scenario-pagerank">
+      <div class="scenario-card">
+        <div class="scenario-info">
+          <h3><span class="emoji">🌐</span> Google PageRank</h3>
+          <p>
+            อัลกอริทึม PageRank ของ Google ใช้เมทริกซ์ในการจัดอันดับหน้าเว็บ
+            โดยมองว่าลิงก์ระหว่างเว็บเป็น "คะแนนโหวต"
+          </p>
+          <p>
+            สร้าง <strong>Transition Matrix</strong> จากลิงก์ แล้วหา Eigenvector
+            ที่สอดคล้องกับ Eigenvalue = 1
+          </p>
+          <div class="scenario-formula">
+            r = M × r<br><br>
+            M = Transition Matrix<br>
+            r = เวกเตอร์คะแนน PageRank<br>
+            ทำซ้ำจนค่า r ลู่เข้า (converge)
+          </div>
+        </div>
+        <div class="scenario-demo">
+          <canvas id="pagerankCanvas" width="280" height="280"></canvas>
+          <div style="text-align:center;margin-top:0.75rem;">
+            <button class="demo-btn" onclick="simulatePageRank()">▶️ จำลอง PageRank</button>
+          </div>
+          <div class="demo-output" id="pagerankOutput" style="width:100%;margin-top:0.75rem;font-size:0.8rem;">
+            กดปุ่มเพื่อจำลองการคำนวณ PageRank
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>สร้างด้วย <span class="footer-heart">♥</span> เพื่อการเรียนรู้คณิตศาสตร์ — Matrix Academy 2026</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
